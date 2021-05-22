@@ -33,7 +33,7 @@ template.innerHTML = `
 			background-color:#B5F100;
 		}
 	</style>
-	<a class="md-icon" href="/">
+	<a class="md-icon" href="./js-funhouse">
 		<svg viewBox="0 0 60 60">
 			<g>
 				<rect fill="#B5F100" x="0" y="0" width="60" height="60"></rect>
@@ -44,7 +44,6 @@ template.innerHTML = `
 	<h1 class="title-site">JS-Funhouse</h1>
 	<nav>
 		<ul class="fun-nav-list"> 
-			<a href="/components/web-component-tooltip/index.html">Web Component - tooltip</a>
 		</ul>
 	</nav>
 `;
@@ -57,31 +56,31 @@ class GlobalHeader extends HTMLElement {
 		let globalNav = [
 			{
 				linkName: "Web Component - tooltip",
-				linkURL: "components/web-component-tooltip/index.html",
+				linkURL: "/js-funhouse/components/web-component-tooltip/index.html",
 			},
-			{
-				linkName: "Object entries",
-				linkURL: "components/object-entries/index.html",
-			},
-			{
-				linkName: "Map an object",
-				linkURL: "components/object-map/index.html",
-			},
+			// {
+			// 	linkName: "Object entries",
+			// 	linkURL: "components/object-entries/index.html",
+			// },
+			// {
+			// 	linkName: "Map an object",
+			// 	linkURL: "components/object-map/index.html",
+			// },
 		];
-		// let navConcat = globalNav
-		// 	.map(function (e) {
-		// 		return (
-		// 			"<li>" +
-		// 			'<a href="' +
-		// 			e.linkURL +
-		// 			'">' +
-		// 			e.linkName +
-		// 			"</a>" +
-		// 			"</li>"
-		// 		);
-		// 	})
-		// 	.join("");
-		// this.shadowRoot.querySelector(".fun-nav-list").innerHTML = navConcat;
+		let navConcat = globalNav
+			.map(function (e) {
+				return (
+					"<li>" +
+					'<a href="' +
+					e.linkURL +
+					'">' +
+					e.linkName +
+					"</a>" +
+					"</li>"
+				);
+			})
+			.join("");
+		this.shadowRoot.querySelector(".fun-nav-list").innerHTML = navConcat;
 	}
 }
 
