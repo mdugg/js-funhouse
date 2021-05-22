@@ -43,7 +43,9 @@ template.innerHTML = `
 	</a>
 	<h1 class="title-site">JS-Funhouse</h1>
 	<nav>
-		<ul class="fun-nav-list"> </ul>
+		<ul class="fun-nav-list"> 
+			<a href="/components/web-component-tooltip/index.html">Web Component - tooltip</a>
+		</ul>
 	</nav>
 `;
 
@@ -57,29 +59,29 @@ class GlobalHeader extends HTMLElement {
 				linkName: "Web Component - tooltip",
 				linkURL: "components/web-component-tooltip/index.html",
 			},
-			// {
-			// 	linkName: "Object entries",
-			// 	linkURL: "components/object-entries/index.html",
-			// },
-			// {
-			// 	linkName: "Map an object",
-			// 	linkURL: "components/object-map/index.html",
-			// },
+			{
+				linkName: "Object entries",
+				linkURL: "components/object-entries/index.html",
+			},
+			{
+				linkName: "Map an object",
+				linkURL: "components/object-map/index.html",
+			},
 		];
-		let navConcat = globalNav
-			.map(function (e) {
-				return (
-					"<li>" +
-					'<a href="./' +
-					e.linkURL +
-					'">' +
-					e.linkName +
-					"</a>" +
-					"</li>"
-				);
-			})
-			.join("");
-		this.shadowRoot.querySelector(".fun-nav-list").innerHTML = navConcat;
+		// let navConcat = globalNav
+		// 	.map(function (e) {
+		// 		return (
+		// 			"<li>" +
+		// 			'<a href="' +
+		// 			e.linkURL +
+		// 			'">' +
+		// 			e.linkName +
+		// 			"</a>" +
+		// 			"</li>"
+		// 		);
+		// 	})
+		// 	.join("");
+		// this.shadowRoot.querySelector(".fun-nav-list").innerHTML = navConcat;
 	}
 }
 
