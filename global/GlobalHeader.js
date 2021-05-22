@@ -33,7 +33,7 @@ template.innerHTML = `
 			background-color:#B5F100;
 		}
 	</style>
-	<a class="md-icon" href="./js-funhouse">
+	<a class="md-icon" href="/js-funhouse">
 		<svg viewBox="0 0 60 60">
 			<g>
 				<rect fill="#B5F100" x="0" y="0" width="60" height="60"></rect>
