@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="../../global/styles/css/global.css" rel="stylesheet">       
+    <link href="../../global/styles/css/prism.css" rel="stylesheet">       
+    <link href="local.css" rel="stylesheet">       
+    <title>
+        Javascript Object Entries || Martin Duggan, Product Designer
+    </title>
+</head>
+<body class="fun-body-grid">
+    <header class="fun-header">
+        <fun-nav></fun-nav>
+    </header>
+    <main class="fun-main" role="main">
+
+        <article>
+            <h2 class="title-section">UX Laws...</h2>
+            <div class="ux-card">
+
+            </div>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">MDN Web Docs</a>
+        </article>
+
+        <section class="fun-code-block">
+            <pre class="language-js" rel="JS" >
+                <code>
+    // Object.entries()
+    // convert an object into an array of key:value pairs
+    // loop over objects easily
+    // works well with URLSearchParams()
+                </code>
+            </pre>
+        </section>
+
+
+
+    </main>
+    <script>
+        const person = {
+            name: "Marty",
+            age: 45
+        }
+        console.log(Object.entries(person))
+        // person.entries(); <-- incorrect syntax
+        // for of loop with array destructuring
+        // runs for each key:value pair in object
+        for (const [key, value] of Object.entries(person)) {
+            // object.hasOwnProperty <-- needed for in loop
+            // .entries does not look at prototype chain
+            console.log(`Key: ${key} and Value: ${value}`)
+        }
+        const params = new URLSearchParams(Object.entries(person));
+        console.log(params.toString())
+
+        // output to HTML
+        const uxLaws = 
+            {
+                law: "Aesthetic-Usability Effect",
+                desc: "Users often perceive aesthetically pleasing design as design that’s more usable."
+            }
+        // Object.entries(uxLaws).forEach(([key, value]) => console.log(`forEach = ${key}: ${value}`));
+
+        for (const [key, value] of Object.entries(uxLaws)) {
+            const string = `${key} : ${value}`;
+            document.querySelector(".ux-card").innerHTML = string;
+        }
+
+
+    </script>
+    <script src="../../global/GlobalHeader.js"></script>
+    <script src="../../global/js/prism.js"></script>
+</body>
+</html>

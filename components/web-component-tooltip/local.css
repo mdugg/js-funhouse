@@ -1,0 +1,62 @@
+.title {
+  font-size: 2.8rem;
+  font-weight: 300;
+}
+
+.subtitle {
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 6vh);
+  grid-gap: 0px;
+  height: 80vh;
+  overflow: hidden;
+  background-color: #14193a;
+  padding: 24px;
+}
+.image-grid fun-tooltip {
+  position: absolute;
+}
+.image-grid figure {
+  overflow: hidden;
+  position: relative;
+}
+.image-grid .chicago-L {
+  grid-area: 1/1/7/8;
+}
+.image-grid .chicago-bridges {
+  grid-area: 7/2/11/7;
+}
+.image-grid .chicago-towers {
+  grid-area: 4/7/13/13;
+}
+.image-grid .chicago-towers fun-tooltip {
+  top: 20%;
+}
+.image-grid .chicago-nbc {
+  grid-area: 1/6/5/11;
+}
+
+.content-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 8rem;
+}
+.content-block .text {
+  font-size: 1.6rem;
+  width: 100%;
+  max-width: 60rem;
+}
+
+@media (max-width: 1700px) {
+  .fun-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*# sourceMappingURL=local.css.map */

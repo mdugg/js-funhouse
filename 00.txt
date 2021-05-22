@@ -1,2 +1,16 @@
-git clone ...
-git remote -v
+cd global/styles/
+sass --watch scss:css
+
+cd components/web-component-tooltip
+sass --watch local.scss:local.css
+
+===========================
+
+git status
+git add --all
+git reset ../../00.txt
+git commit -m "
+git push
+
+===========================
+https://mdugg.github.io/js-funhouse/

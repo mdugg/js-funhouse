@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="../../global/styles/css/global.css" rel="stylesheet">       
+    <title>
+        JS Funhouse - a JavaScript sandbox by Martin Duggan, Product Designer
+    </title>
+</head>
+<body class="fun-body-grid">
+    <header class="fun-header">
+        <fun-nav></fun-nav>
+    </header>
+    <main class="fun-main" role="main">
+
+        <ul class="temp"></ul>
+
+    </main>
+    <script>
+        let globalNav = [
+            {
+                linkName: "First JS excercise",
+                linkURL: "/",
+            }, 
+            {
+                linkName: "Second JS excercise",
+                linkURL: "/",
+            }
+        ];
+
+        let navConcat = globalNav.map(function (e) {
+            return '<li>' + 
+                    '<a href="' +
+                    e.linkURL +
+                    '">' +
+                    e.linkName + 
+                    '</a>' +
+                    '</li>';  
+        }).join('');
+
+        document.querySelector('.temp').innerHTML = navConcat;
+
+    </script>
+    <script src="../../global/GlobalHeader.js"></script>
+</body>
+</html>
