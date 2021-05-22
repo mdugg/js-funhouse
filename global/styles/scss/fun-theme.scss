@@ -1,0 +1,14 @@
+.fun-body-grid {
+    display:grid;
+    grid-template-columns: 2fr 8fr;
+    padding:0;
+    margin:0;
+}
+
+.fun-main {
+    display:grid;
+    grid-template-columns: 3fr 1fr;
+    background-color:#eee;
+    min-height: 100vh;
+}
+
