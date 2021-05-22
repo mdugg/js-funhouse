@@ -55,22 +55,22 @@ class GlobalHeader extends HTMLElement {
 		let globalNav = [
 			{
 				linkName: "Web Component - tooltip",
-				linkURL: "/components/web-component-tooltip/index.html",
+				linkURL: "components/web-component-tooltip/index.html",
 			},
 			// {
 			// 	linkName: "Object entries",
-			// 	linkURL: "/components/object-entries/index.html",
+			// 	linkURL: "components/object-entries/index.html",
 			// },
 			// {
 			// 	linkName: "Map an object",
-			// 	linkURL: "/components/object-map/index.html",
+			// 	linkURL: "components/object-map/index.html",
 			// },
 		];
 		let navConcat = globalNav
 			.map(function (e) {
 				return (
 					"<li>" +
-					'<a href="' +
+					'<a href="./' +
 					e.linkURL +
 					'">' +
 					e.linkName +
