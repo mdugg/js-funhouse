@@ -9,7 +9,7 @@ sass --watch local.scss:local.css
 git status
 git add --all
 git reset ../../00.txt
-git commit -m "
+git commit --all -m "
 git push
 
 ===========================
