@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     <link href="../../global/styles/css/global.css" rel="stylesheet">       
     <link href="../../global/styles/css/prism.css" rel="stylesheet">       
     <link href="local.css" rel="stylesheet">       
@@ -19,58 +21,127 @@
     </header>
     <main class="fun-main" role="main">
 
-        <article>
-            <h2 class="title-section">UX Laws...</h2>
-            <div class="ux-card">
-
+        <article class="fun-content">
+            <div class="inner">
+                <h2 class="title">Object.entries()</h2>
+                <p>Convert an object into an array of key:value pairs; object.entries work well with 
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams">
+                        URLSearchParams()
+                    </a> .
+                </p>
+                <h3 class="subtitle">Example of an object entry iteration</h3>
+                <ul class="ux-card-list"> </ul>
+                <h3 class="subtitle">Enumerability is a consideration</h3>
+                <p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">
+                        Enumerable properties
+                    </a> are those which can be iterated by a for...in loop.
+                </p>
+                <p>An enumerable property is one that can be included in and visited during for...in loops, or a similar iteration of properties, like Object.keys().</p>
+                <p>If a property isn't identified as enumerable, the loop will ignore that it's within the object. A property is identified as enumerable or not by its own 
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">[Enumerable] attribute</a> .</p>              
             </div>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">MDN Web Docs</a>
         </article>
 
         <section class="fun-code-block">
             <pre class="language-js" rel="JS" >
                 <code>
-    // Object.entries()
-    // convert an object into an array of key:value pairs
-    // loop over objects easily
-    // works well with URLSearchParams()
+    // Object.keys(obj) returns an array of the object's property names
+    // Object.values(obj) returns an array of the object's values
+    // Object.entries(obj) returns an array of [key, value] pairs
+
+    let uxLaws = {
+        law01: {
+            name: "Aesthetic-Usability Effect",
+            desc: "Users often perceive aesthetically pleasing design as design that’s more usable."
+        },
+        law02: {
+            name: "Hick’s Law",
+            desc: "The time it takes to make a decision increases with the number and complexity of choices."
+        },
+        law03: {
+            name: "Law of Common Region",
+            desc: "Elements tend to be perceived into groups if they are sharing an area with a clearly defined boundary."
+        }
+    }
+    let uxCards = Object.entries(uxLaws).map(
+        ([key, value]) => {
+            return (`
+                ${key}
+                ${value.name}
+                ${value.desc}
+            `);
+        }
+    ).join("");
+    document.querySelector(".ux-card").innerHTML = uxCards;
                 </code>
             </pre>
         </section>
-
-
-
     </main>
     <script>
+        // output to HTML
+        let uxLaws = {
+            law01: {
+                name: "Aesthetic-Usability Effect",
+                desc: "Users often perceive aesthetically pleasing design as design that’s more usable."
+            },
+            law02: {
+                name: "Hick’s Law",
+                desc: "The time it takes to make a decision increases with the number and complexity of choices."
+            },
+            law03: {
+                name: "Law of Common Region",
+                desc: "Elements tend to be perceived into groups if they are sharing an area with a clearly defined boundary."
+            }
+        }
+        // Object.entries(uxLaws).forEach(([key, value]) => console.log(`forEach = ${key}: ${value}`));
+        // outputs 1 nested object:
+        // function renderUxLaws(obj) {
+        //     for (let [key, value] of Object.entries(obj)) {
+        //         let string = `
+        //             <span>${key}</span>
+        //             <div>${value.name}</div>
+        //             <div>${value.desc}</div>
+        //         `;
+        //         document.querySelector(".ux-card").innerHTML = string;
+        //     }
+        // }
+        // renderUxLaws(uxLaws);
+
+        // iterate through an object:
+        let uxCards = Object.entries(uxLaws).map(
+            ([key, value]) => {
+                return (`
+                    <li class="ux-card">
+                        <div class="ux-card-inner">
+                            <span class="label">${key}</span>
+                            <div class="card-title">${value.name}</div>
+                            <div class="card-details">${value.desc}</div>
+                        </div>
+                    </li>
+                `);
+            }
+        ).join("");
+        document.querySelector(".ux-card-list").innerHTML = uxCards;
+
+
+        // test:
         const person = {
             name: "Marty",
             age: 45
         }
-        console.log(Object.entries(person))
+        // console.log(Object.entries(person))
         // person.entries(); <-- incorrect syntax
         // for of loop with array destructuring
         // runs for each key:value pair in object
+
         for (const [key, value] of Object.entries(person)) {
             // object.hasOwnProperty <-- needed for in loop
             // .entries does not look at prototype chain
             console.log(`Key: ${key} and Value: ${value}`)
         }
         const params = new URLSearchParams(Object.entries(person));
-        console.log(params.toString())
-
-        // output to HTML
-        const uxLaws = 
-            {
-                law: "Aesthetic-Usability Effect",
-                desc: "Users often perceive aesthetically pleasing design as design that’s more usable."
-            }
-        // Object.entries(uxLaws).forEach(([key, value]) => console.log(`forEach = ${key}: ${value}`));
-
-        for (const [key, value] of Object.entries(uxLaws)) {
-            const string = `${key} : ${value}`;
-            document.querySelector(".ux-card").innerHTML = string;
-        }
-
+        // console.log(params.toString())
 
     </script>
     <script src="../../global/GlobalHeader.js"></script>

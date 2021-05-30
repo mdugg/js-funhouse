@@ -1,7 +1,7 @@
 cd global/styles/
 sass --watch scss:css
 
-cd components/web-component-tooltip
+cd components/object-entries
 sass --watch local.scss:local.css
 
 ===========================
