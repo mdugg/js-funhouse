@@ -1,6 +1,9 @@
 cd global/styles/
 sass --watch scss:css
 
+cd components/web-component-tooltip
+sass --watch local.scss:local.css
+
 cd components/object-entries
 sass --watch local.scss:local.css
 
@@ -9,7 +12,7 @@ sass --watch local.scss:local.css
 git status
 git add --all
 git reset ../../00.txt
-git commit --all -m "
+git commit -m "
 git push
 
 ===========================
