@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    <link href="../../global/styles/css/global.css" rel="stylesheet">       
+    <link href="../../global/styles/css/prism.css" rel="stylesheet">       
+    <link href="./local.css" rel="stylesheet">   
+    <script src="../../global/GlobalHeader.js" defer></script>
+    <script src="../../global/js/prism.js" defer></script>
+	<script type="module">
+		import productsObj from './products.js'
+		// console.log(productsObj);
+		let productConcat = productsObj
+			.map(function (obj) {
+				return (`
+				<li class="product__item">
+					<div class="product__content">
+						<figure class="product__image-block"></figure>
+							<img 
+								class="product__image" 
+								src="${obj.url}"
+								alt="${obj.alt}" />
+						</figure>
+						<!-- color swatch -->
+						<h3 class="product__title">${obj.title}</h3>
+						<p class="product__desc">
+							${obj.desc}
+						</p>
+						<p>	<strong>Price</strong>
+							<span class="product__price">
+								$${obj.price}
+							</span>
+						</p>
+					</div>
+					<span class="button__group">
+						<button class="product__add">
+							<svg viewBox="0 0 24 24" 
+								fill="none" 
+								stroke="currentColor" 
+								stroke-width="2" 
+								stroke-linecap="round" 
+								stroke-linejoin="round" >
+									<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+									<line x1="3" y1="6" x2="21" y2="6"></line>
+									<path d="M16 10a4 4 0 0 1-8 0"></path>
+							</svg>
+							Add to cart
+						</button>
+					</span>
+				</li>`);
+			})
+			.join("");
+		document.querySelector(".product__list").innerHTML = productConcat;
+	</script>
+	<script src="./store.js" async></script>
+    <title>
+        Shopping Cart Demo || Martin Duggan, Product Designer
+    </title>
+</head>
+<body class="fun-body-grid">
+    <header class="fun-header">
+        <fun-nav></fun-nav>
+    </header>
+    <main class="fun-main" role="main">
+		<section class="product__page">
+			<div class="product__display">
+				<h2 class="title__page">Chattahoochee National Forest</h2>
+				<p class="text__intro">Purchase fine prints</p>
+				<ul class="product__list"> </ul>
+			</div>
+			<aside class="cart__sidebar">
+				<ul class="cart__list"></ul>
+				<p class="cart__total">
+					<strong>Total:</strong> 
+					<span class="cart__total-price">$0</span>
+				</p>
+				<button class="btn__purchase">Purchase</button>
+			</aside>
+		</section>
+        <article class="fun-content">
+			<div class="text">
+			    <h2 class="title">Shopping Cart Demo</h2>
+				<p>This is my first-pass at exploring  <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">Web Components</a>. Multiple instances of the tooltip component can be used with unique data passed in via props/attributes.</p>
+				<ul>
+					<li>list of functions created</li>
+					<li>
+						<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:host()">:host()</a>
+					</li>
+				</ul>
+			</div>
+        </article>
+
+        <section class="fun-code-block">
+            <pre class="language-js" rel="JS" >
+                <code>
+                </code>
+            </pre>
+        </section>
+    </main>
+</body>
+</html>	

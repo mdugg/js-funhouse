@@ -1,0 +1,14 @@
+.fun-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.product__page {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  column-gap: 4rem;
+  padding-left: 4rem;
+}
+
+/*# sourceMappingURL=local.css.map */

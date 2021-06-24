@@ -1,0 +1,126 @@
+.fun-main {
+  display: flex;
+  flex-direction: column;
+  background-color: #11131d;
+  min-height: 100vh;
+}
+
+.product__page {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  column-gap: 4rem;
+  padding-left: 4rem;
+}
+
+.title__page {
+  color: #8fa4b3;
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 4rem;
+  line-height: 1.1;
+  text-align: center;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.product__content {
+  font-size: 1.4rem;
+}
+
+.text__intro {
+  color: #8fa4b3;
+  font-size: 2.4rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.product__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2.4rem;
+  row-gap: 4rem;
+}
+
+.product__item {
+  color: #8fa4b3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product__title {
+  font-size: 1.6rem;
+}
+
+.product__desc {
+  font-size: 1.4rem;
+}
+
+.product__add {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #8fa4b3;
+  line-height: 1;
+  padding: 1.2rem 2.4rem;
+  background-color: transparent;
+  border: 1px solid #fff;
+  transition: all 0.3s ease-out;
+}
+.product__add:hover {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px dashed #00a1ff;
+}
+.product__add svg {
+  height: 2rem;
+  margin-right: 0.8rem;
+}
+
+.button__group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cart__sidebar {
+  padding: 4rem;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all 0.3s ease-out;
+}
+.cart__sidebar:hover {
+  background-color: black;
+}
+
+.cart__item {
+  color: #8fa4b3;
+}
+.cart__item p {
+  margin: 0.4rem;
+}
+
+.cart__title {
+  font-size: 1.4rem;
+  margin: 0.8rem 0;
+}
+
+.cart__price {
+  font-size: 1.4rem;
+}
+
+.cart__actions {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 1800px) {
+  .product__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product__item {
+    padding: 2.4rem;
+  }
+}
+
+/*# sourceMappingURL=local.css.map */

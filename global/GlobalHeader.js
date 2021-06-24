@@ -56,17 +56,27 @@ class GlobalHeader extends HTMLElement {
 		this.shadowRoot.appendChild(template.content.cloneNode(true));
 		let globalNav = [
 			{
+				linkName: "Shopping Cart Demo",
+				linkURL: "/js-funhouse/components/shopping-cart/index.html",
+				month: "06",
+				year: "2021",
+			},
+			{
 				linkName: "Web Component - tooltip",
 				linkURL: "/js-funhouse/components/web-component-tooltip/index.html",
+				month: "05",
+				year: "2021",
 			},
 			{
 				linkName: "Object entries",
 				linkURL: "/js-funhouse/components/object-entries/index.html",
+				month: "05",
+				year: "2021",
 			},
-			{
-				linkName: "Map an object",
-				linkURL: "components/object-map/index.html",
-			},
+			// {
+			// 	linkName: "Map an object",
+			// 	linkURL: "components/object-map/index.html",
+			// },
 		];
 		let navConcat = globalNav
 			.map(function (e) {

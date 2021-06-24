@@ -1,3 +1,7 @@
+$md-green: #B5F100;
+$illus-red: #dc5f5f;
+$illus-red-dark: #b95454;
+
 .fun-body-grid {
     display:grid;
     grid-template-columns: 2fr 8fr;
@@ -12,3 +16,40 @@
     min-height: 100vh;
 }
 
+.fun-content {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:8rem;
+
+    .title {
+        font-size: 2.8rem;
+        font-weight: 300;
+    }
+    .subtitle {
+        font-size: 2.4rem;
+        font-weight: 300;
+    }
+    .text {
+        font-size:1.6rem;
+        width:100%;
+        max-width: 60rem;
+    }
+}
+
+.fun-illustration {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    background-color: $illus-red-dark;
+
+    &__svg {
+        fill: #fff;
+        max-width:100%;
+        max-height:100%;
+    }
+}
