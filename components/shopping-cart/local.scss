@@ -31,6 +31,12 @@ $color-blue: rgba(0,161,255,1);
     font-weight:400;
     text-align:center;
 }
+.text__standard {
+    color: $color-text;
+    font-size:1.6rem;
+    font-weight:400;
+    text-align:center;
+}
 .product__list {
     display:grid;
     grid-template-columns: repeat(3, 1fr);
@@ -49,7 +55,12 @@ $color-blue: rgba(0,161,255,1);
 .product__desc {
     font-size:1.4rem;
 }
-.product__add {
+.button__group {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+}
+.button {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -68,15 +79,22 @@ $color-blue: rgba(0,161,255,1);
     }
 
     svg {
+        fill: $color-text;
         height: 2rem;
         margin-right:.8rem;
     }
+
+    &__link {
+        @extend .button;
+        text-decoration: none;        
+
+        svg {
+            fill: none;
+            stroke: $color-text;
+        }
+    }
 }
-.button__group {
-    display:flex;
-    flex-direction:row;
-    justify-content: center;
-}
+
 
 // cart
 .cart__sidebar {
