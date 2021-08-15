@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDN -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link href="../../global/styles/css/global.css" rel="stylesheet">       
+    <link href="../../global/styles/css/prism.css" rel="stylesheet">       
+    <link href="array-methods.css" rel="stylesheet">   
+    <!-- JS -->
+    <script src="../../global/GlobalHeader.js" type="module"></script>
+    <script src="../../global/js/prism.js" defer></script>       
+    <script src="array-methods.js" defer></script> 
+    <title>
+        8 Array Methods || Martin Duggan, Product Designer
+    </title>
+</head>
+<body class="fun__grid">
+    <header class="fun__header">
+        <fun-nav></fun-nav>
+    </header>
+    <main class="fun__main" role="main">
+        <h2 class="title">8 Array Methods</h2>
+        <article class="card__method" id="filter">
+            <h3 class="subtitle">Filter Method</h3>
+            <p>Filter a list of products to only show those less than or equal to $100.  The <code>filter</code> method does not mutate the original array. </p>      
+            <div class="filter__lists">
+                <div class="col">
+                    <h4 class="sectiontitle">Full List</h4>
+                    <dl class="list__filter list__filter--original"></dl>
+                </div>
+                <div class="col">
+                    <h4 class="sectiontitle">Filtered List</h4>
+                    <dl class="list__filter list__filter--filtered"></dl>
+                </div>
+            </div>        
+        </article>
+        <section class="fun__code-block">
+            <pre class="language-js" rel="JS" >
+                <code>
+    const products = [
+        { name: "Bike", price: 100 },
+        { name: "TV", price: 200 },
+        { name: "Album", price: 10 },
+        { name: "Book", price: 5 },
+        { name: "Phone", price: 500 },
+        { name: "Computer", price: 1000 },
+        { name: "Keyboard", price: 25 },
+        { name: "Desk", price: 600 },
+    ];
+    const filteredProducts = products.filter((product) => {
+        return product.price <= 100;
+        // if true gets pushed to new array
+    });
+    // use .map to return DOM lists
+                </code>
+            </pre>
+        </section>
+        <p>...to be continued</p>
+    </main>
+</body>
+</html>

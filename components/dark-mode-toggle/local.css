@@ -1,14 +1,128 @@
-.fun-main {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.product__page {
+.fun__main {
   display: grid;
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto;
   column-gap: 4rem;
   padding-left: 4rem;
+}
+
+.fun__content {
+  display: flex;
+  margin-bottom: 8rem;
+}
+
+.btn__toggle {
+  line-height: 4rem;
+  border: 1px solid red;
+  border-radius: 2rem;
+  padding: 0 4rem;
+  margin-bottom: 4rem;
+}
+.btn__toggle:hover {
+  cursor: pointer;
+}
+
+.toggle__illustration {
+  height: 50vh;
+  grid-column-start: 1;
+  grid-column-end: 8;
+  grid-row-start: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+  background-color: #eee;
+  border-radius: 1rem;
+  padding: 8rem;
+  transition: all 1s ease-out;
+}
+.toggle__illustration .sol {
+  fill: #ff9300;
+  transition: all 1s ease-out;
+}
+.toggle__illustration .luna {
+  fill: #ff9300;
+  transition: all 1s ease-out;
+}
+
+.fun__content {
+  grid-column-start: 1;
+  grid-column-end: 8;
+  grid-row-start: 2;
+  font-family: "Dosis", sans-serif;
+  font-weight: 400;
+}
+.fun__content .title {
+  font-size: 4.8rem;
+  font-weight: 200;
+}
+.fun__content .subtitle {
+  font-size: 3.2rem;
+}
+.fun__content .text {
+  font-size: 2rem;
+  line-height: 1.4;
+  max-width: 80rem;
+}
+.fun__content .code-inline {
+  background-color: #ffeded;
+  border: 1px solid #ffa2a2;
+  border-radius: 0.2rem;
+}
+
+.table {
+  width: 100%;
+  border: 1px dashed #38d091;
+}
+.table th {
+  color: #38d091;
+  font-weight: 400;
+  text-align: left;
+  padding: 1.2rem 0.8rem;
+}
+.table td {
+  border-top: 1px dashed #38d091;
+  padding: 1.2rem 0.8rem;
+}
+.table td:first-child {
+  color: #38d091;
+}
+
+.fun__code-block {
+  grid-column-start: 8;
+  grid-column-end: 13;
+  grid-row-start: 1;
+}
+
+.dark-mode .toggle__illustration {
+  background-color: #000044;
+}
+.dark-mode .toggle__illustration .sol {
+  fill: #0d0c4c;
+}
+.dark-mode .toggle__illustration .luna {
+  fill: #afd1ff;
+}
+
+@media (max-width: 1200px) {
+  .fun__main {
+    grid-template-rows: auto auto auto;
+  }
+
+  .toggle__illustration {
+    grid-column-end: 12;
+  }
+
+  .fun__content {
+    grid-column-end: 12;
+    grid-row-start: 2;
+  }
+
+  .fun__code-block {
+    grid-column-start: 1;
+    grid-column-end: 12;
+    grid-row-start: 3;
+  }
 }
 
 /*# sourceMappingURL=local.css.map */

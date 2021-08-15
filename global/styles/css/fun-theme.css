@@ -1,38 +1,71 @@
-.fun-body-grid {
+.fun__grid {
   display: grid;
   grid-template-columns: 28rem 1fr;
   padding: 0;
   margin: 0;
 }
 
-.fun-main {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  background-color: #eee;
-  min-height: 100vh;
+.md {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 4.8rem;
+  margin-left: 1.6rem;
 }
 
-.fun-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 8rem;
+.fun__title {
+  font-size: 2.8rem;
+  padding: 1.6rem;
+  margin-top: 2.4rem;
+  margin-bottom: 0;
 }
-.fun-content .title {
+
+.fun__nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fun__nav-link {
+  color: #000;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  padding: 1.6rem;
+  display: block;
+  border-bottom: 1px solid #eee;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+
+.fun__nav-link:hover {
+  background-color: #B5F100;
+}
+
+.fun__content {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.fun__content .title {
   font-size: 2.8rem;
   font-weight: 300;
+  line-height: 1.2;
 }
-.fun-content .subtitle {
+.fun__content .subtitle {
   font-size: 2.4rem;
   font-weight: 300;
 }
-.fun-content .text {
+.fun__content .text {
   font-size: 1.6rem;
   width: 100%;
   max-width: 60rem;
 }
+.fun__content .code-inline {
+  background-color: #ffeded;
+  border: 1px solid #ffa2a2;
+  border-radius: 0.2rem;
+}
 
-.fun-illustration {
+.fun__illustration {
   overflow: hidden;
   grid-column-start: 1;
   grid-column-end: 13;
@@ -43,9 +76,16 @@
   align-items: center;
   background-color: #b95454;
 }
-.fun-illustration__svg {
+
+.fun__svg {
   fill: #fff;
   height: 100%;
+}
+
+@media screen and (max-width: 960px) {
+  .fun__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /*# sourceMappingURL=fun-theme.css.map */

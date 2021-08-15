@@ -32,7 +32,7 @@ document.onreadystatechange = function () {
 };
 
 function productPageReady() {
-	alert("DOM Content Loaded");
+	// alert("DOM Content Loaded");
 	let removeCartItemBtn = document.getElementsByClassName("cart__remove");
 	for (let i = 0; i < removeCartItemBtn.length; i++) {
 		let btn = removeCartItemBtn[i];

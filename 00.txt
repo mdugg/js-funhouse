@@ -1,47 +1,41 @@
-What's exciting?
-- navbar off-canvas
+Next:
+- local storage / toggle dark mode 
+    have fun with toggle 'button' day night icons illustrations smashing pumpkins style rotate
+    Dark Mode JavaScript toggle using localStorage
+    https://www.youtube.com/watch?v=wodWDIdV9BY
+- How to Add and Remove Class in Javascript  
+    https://www.youtube.com/watch?v=IKzlUvYSZO4
+    https://www.javascripttutorial.net/dom/css/remove-class-from-an-element/
+- fix shopping cart
+    lazy load solution for images
+    creative loader animation
 - web component modal
 - array methods
-- local storage
 - fetch api
 - form validation
+- function factories / higher order functions / classes
 - about: tw / ln / prod design bio
-- video API
-- app: todo list
-- Javascript Animated Navbar Tutorial https://www.youtube.com/watch?v=RLc8NB2JyxE 
 
 ===========================
 
 cd global/styles/
 sass --watch scss:css
 
-cd components/shopping-cart
-sass --watch local.scss:local.css
-
-cd components/side-drawer
-sass --watch local.scss:local.css
-
-cd components/dark-mode-toggle
-sass --watch local.scss:local.css
+cd components/array-methods
+sass --watch array-methods.scss:array-methods.css
 
 ===========================
 
 git status
-git add --all
 git add .
-git reset 00.txt
-git rrm -- 00.txt
 git commit -m "refactor global nav"
 git push
 
 --
+git add --all
+git reset 00.txt
+git rrm -- 00.txt
 git fetch --all
 git push --force
 
 ===========================
-https://mdugg.github.io/js-funhouse/
-
-
-
-Dark Mode JavaScript toggle using localStorage
-https://www.youtube.com/watch?v=wodWDIdV9BY

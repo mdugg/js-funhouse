@@ -1,2 +1,4 @@
 # js-funhouse
-Mixture of JavaScript play things
+Sandbox for front-end explorations from the perspective of a digital Product Designer
+
+(https://mdugg.github.io/js-funhouse/)

@@ -16,155 +16,151 @@
         Web Component tooltip || Martin Duggan, Product Designer
     </title>
 </head>
-<body class="fun-body-grid">
+<body class="fun__grid">
     <header class="fun-header">
         <fun-nav></fun-nav>
     </header>
-    <main class="fun-main" role="main">
+    <main class="fun__main" role="main">
 
-        <article class="content-block">
-			<div class="image-grid">
-				<figure class="chicago-L">
-				    <fun-tooltip 
-						fun-tt-props="I love the beautiful steel work and engineering of the Chicago 'L'. What should be ugly is a fascinating vessel for textures, colours, and shapes of interest running through the city centre.">
-					</fun-tooltip>
-					<img src="./img/chicago01_500.jpg" 
-						srcset="./img/chicago01_500.jpg 500w"
-						srcset="./img/chicago01_1000.jpg 1000w"
-						srcset="./img/chicago01_1500.jpg 1500w" />
-				</figure>
-				<figure class="chicago-towers">
-					<fun-tooltip 
-						fun-tt-props="Visiting the city in November 2020, during a time of COVID, had an eerie atmosphere. It is our only experience of Chicago. We need to revisit again in summer to see the vibrancy of the city.">
-					</fun-tooltip>
-					<img src="./img/chicago03_500.jpg" 
-						srcset="./img/chicago03_500.jpg 500w"
-						srcset="./img/chicago03_1000.jpg 1000w"
-						srcset="./img/chicago03_1500.jpg 1500w" />
-				</figure>	
-				<figure class="chicago-bridges">
-					<fun-tooltip 
-						fun-tt-props="I love the steel work of this city. The bridges just gather beauty with age.">
-					</fun-tooltip>
-					<img src="./img/chicago02_500.jpg" 
-						srcset="./img/chicago02_500.jpg 500w"
-						srcset="./img/chicago02_1000.jpg 1000w"
-						srcset="./img/chicago02_1500.jpg 1500w" />
-				</figure>
-				<figure class="chicago-nbc">
-					<fun-tooltip 
-						fun-tt-props="Our first night stay had a view of the NBC Tower and the dramatic skyline that runs along the Chicago River.">
-					</fun-tooltip>
-					<img src="./img/chicago04_500.jpg" 
-						srcset="./img/chicago04_500.jpg 500w"
-						srcset="./img/chicago04_1000.jpg 1000w"
-						srcset="./img/chicago04_1500.jpg 1500w" />
-				</figure>
-				<!-- 
-				<figure class="chicago05">
-					<img src="./img/chicago05_500.jpg" 
-						srcset="./img/chicago05_500.jpg 500w"
-						srcset="./img/chicago05_1000.jpg 1000w"
-						srcset="./img/chicago05_1500.jpg 1500w" />
-				</figure> 
-				-->
-			</div>
-			<div class="text">
-			    <h2 class="title">Tooltip created as a Web Component</h2>
-				<p>This is my first-pass at exploring  <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">Web Components</a>. Multiple instances of the tooltip component can be used with unique data passed in via props/attributes.</p>
-				<p>I also took the opportunity to play around with CSS Grid a little; included some photos taken from a trip to Chicago in 2020 - an empty city during COVID.</p>
-				<p>Bits of the Web Components API used...</p>
-				<ul>
-					<li>
-						<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:host()">:host()</a>
-					</li>
-					<li>
-						<a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots">Using Templates and Slots</a>
-					</li>
-					<li>
-						<a href="https://developers.google.com/web/fundamentals/web-components/customelements">Custom Elements</a>
-					</li>
-					<li>
-						<a href="https://developers.google.com/web/fundamentals/web-components/shadowdom">Shadow DOM</a>
-					</li>
-				</ul>
-			</div>
+		<section class="grid__imagery">
+			<figure class="chicago-L">
+				<fun-tooltip 
+					fun-tt-props="I love the beautiful steel work and engineering of the Chicago 'L'. What should be ugly is a fascinating vessel for textures, colours, and shapes of interest running through the city centre.">
+				</fun-tooltip>
+				<img src="./img/chicago01_500.jpg" 
+					srcset="./img/chicago01_500.jpg 500w"
+					srcset="./img/chicago01_1000.jpg 1000w"
+					srcset="./img/chicago01_1500.jpg 1500w" />
+			</figure>
+			<figure class="chicago-towers">
+				<fun-tooltip 
+					fun-tt-props="Visiting the city in November 2020, during a time of COVID, had an eerie atmosphere. It is our only experience of Chicago. We need to revisit again in summer to see the vibrancy of the city.">
+				</fun-tooltip>
+				<img src="./img/chicago03_500.jpg" 
+					srcset="./img/chicago03_500.jpg 500w"
+					srcset="./img/chicago03_1000.jpg 1000w"
+					srcset="./img/chicago03_1500.jpg 1500w" />
+			</figure>	
+			<figure class="chicago-bridges">
+				<fun-tooltip 
+					fun-tt-props="I love the steel work of this city. The bridges just gather beauty with age.">
+				</fun-tooltip>
+				<img src="./img/chicago02_500.jpg" 
+					srcset="./img/chicago02_500.jpg 500w"
+					srcset="./img/chicago02_1000.jpg 1000w"
+					srcset="./img/chicago02_1500.jpg 1500w" />
+			</figure>
+			<figure class="chicago-nbc">
+				<fun-tooltip 
+					fun-tt-props="Our first night stay had a view of the NBC Tower and the dramatic skyline that runs along the Chicago River.">
+				</fun-tooltip>
+				<img src="./img/chicago04_500.jpg" 
+					srcset="./img/chicago04_500.jpg 500w"
+					srcset="./img/chicago04_1000.jpg 1000w"
+					srcset="./img/chicago04_1500.jpg 1500w" />
+			</figure>
+			
+			<!-- <figure class="chicago05">
+				<img src="./img/chicago05_500.jpg" 
+					srcset="./img/chicago05_500.jpg 500w"
+					srcset="./img/chicago05_1000.jpg 1000w"
+					srcset="./img/chicago05_1500.jpg 1500w" />
+			</figure>  -->
+			
+		</section>
+        <article class="content__block">
+			<h2 class="title">Tooltip created as a Web Component</h2>
+			<p>This is my first-pass at exploring  <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">Web Components</a>. Multiple instances of the tooltip component can be used with unique data passed in via props/attributes.</p>
+			<p>I also took the opportunity to play around with CSS Grid a little; included some photos taken from a trip to Chicago in 2020 - an empty city during COVID.</p>
+			<p>Bits of the Web Components API used...</p>
+			<ul>
+				<li>
+					<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:host()" target="_blank">:host()</a>
+				</li>
+				<li>
+					<a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots" target="_blank" >Using Templates and Slots</a>
+				</li>
+				<li>
+					<a href="https://developers.google.com/web/fundamentals/web-components/customelements" target="_blank">Custom Elements</a>
+				</li>
+				<li>
+					<a href="https://developers.google.com/web/fundamentals/web-components/shadowdom" target="_blank">Shadow DOM</a>
+				</li>
+			</ul>
         </article>
 
-        <section class="fun-code-block">
+        <section class="fun__code-block">
             <pre class="language-js" rel="JS" >
                 <code>
-class Tooltip extends HTMLElement {
-	constructor() {
-		super();
-		this._tooltipIcon;
-		this._tooltipVisible = false;
-		this.attachShadow({ mode: "open" });
-		this.shadowRoot.innerHTML = `
-				// html and styles go here
-			`;
-	}
-	connectedCallback() {
-		if (this.hasAttribute("fun-tt-props")) {
-			this._tooltipText = this.getAttribute("fun-tt-props");
+	class Tooltip extends HTMLElement {
+		constructor() {
+			super();
+			this._tooltipIcon;
+			this._tooltipVisible = false;
+			this.attachShadow({ mode: "open" });
+			this.shadowRoot.innerHTML = `
+					// html and styles go here
+				`;
 		}
-		this._tooltipIcon = this.shadowRoot.querySelector(".fun-tt-icon");
-		this._tooltipIcon.addEventListener(
-			"mouseenter",
-			this._showTooltip.bind(this)
-		);
-		this._tooltipIcon.addEventListener(
-			"mouseleave",
-			this._hideTooltip.bind(this)
-		);
-		this._render();
-	}
-	attributeChangedCallback(name, oldValue, newValue) {
-		if (oldValue === newValue) {
-			return;
+		connectedCallback() {
+			if (this.hasAttribute("fun-tt-props")) {
+				this._tooltipText = this.getAttribute("fun-tt-props");
+			}
+			this._tooltipIcon = this.shadowRoot.querySelector(".fun-tt-icon");
+			this._tooltipIcon.addEventListener(
+				"mouseenter",
+				this._showTooltip.bind(this)
+			);
+			this._tooltipIcon.addEventListener(
+				"mouseleave",
+				this._hideTooltip.bind(this)
+			);
+			this._render();
 		}
-		if (name === "fun-props") {
-			this._tooltipText = newValue;
-		}
-	}
-	static get observedAttributes() {
-		return ["fun-props"];
-	}
-	disconnectedCallback() {
-		this._tooltipIcon.removeEventListener("mouseenter", this._showTooltip);
-		this._tooltipIcon.removeEventListener("mouseleave", this._hideTooltip);
-	}
-
-	_render() {
-		let tooltipContainer = this.shadowRoot.querySelector(".fun-tt-content");
-		if (this._tooltipVisible) {
-			tooltipContainer = document.createElement("div");
-			tooltipContainer.classList.add("fun-tt-content");
-			tooltipContainer.textContent = this._tooltipText;
-			this.shadowRoot.appendChild(tooltipContainer);
-		} else {
-			if (tooltipContainer) {
-				this.shadowRoot.removeChild(tooltipContainer);
+		attributeChangedCallback(name, oldValue, newValue) {
+			if (oldValue === newValue) {
+				return;
+			}
+			if (name === "fun-props") {
+				this._tooltipText = newValue;
 			}
 		}
+		static get observedAttributes() {
+			return ["fun-props"];
+		}
+		disconnectedCallback() {
+			this._tooltipIcon.removeEventListener("mouseenter", this._showTooltip);
+			this._tooltipIcon.removeEventListener("mouseleave", this._hideTooltip);
+		}
+
+		_render() {
+			let tooltipContainer = this.shadowRoot.querySelector(".fun-tt-content");
+			if (this._tooltipVisible) {
+				tooltipContainer = document.createElement("div");
+				tooltipContainer.classList.add("fun-tt-content");
+				tooltipContainer.textContent = this._tooltipText;
+				this.shadowRoot.appendChild(tooltipContainer);
+			} else {
+				if (tooltipContainer) {
+					this.shadowRoot.removeChild(tooltipContainer);
+				}
+			}
+		}
+
+		_showTooltip() {
+			this._tooltipVisible = true;
+			this._render();
+		}
+		_hideTooltip() {
+			this._tooltipVisible = false;
+			this._render();
+		}
 	}
 
-	_showTooltip() {
-		this._tooltipVisible = true;
-		this._render();
-	}
-	_hideTooltip() {
-		this._tooltipVisible = false;
-		this._render();
-	}
-}
-
-customElements.define("fun-tooltip", Tooltip);
+	customElements.define("fun-tooltip", Tooltip);
                 </code>
             </pre>
         </section>
-
-
     </main>
 </body>
 </html>

@@ -3,7 +3,12 @@
   --colorLime: #8ce867;
 }
 
-.fun-content {
+.fun__main {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.fun__content {
   grid-column: 1/span 8;
   font-family: "Quicksand", sans-serif;
   font-size: 1.6rem;
@@ -15,21 +20,21 @@
   color: #fff;
   background-color: var(--colorDark);
 }
-.fun-content .inner {
+.fun__content .inner {
   width: 100%;
   max-width: 60rem;
 }
-.fun-content .title {
+.fun__content .title {
   font-size: 6rem;
   font-weight: 300;
 }
-.fun-content a {
+.fun__content a {
   display: inline-block;
   color: var(--colorLime);
   position: relative;
   text-decoration: none;
 }
-.fun-content a:before {
+.fun__content a:before {
   position: absolute;
   left: 0;
   bottom: -0.4rem;
@@ -41,11 +46,11 @@
   transform-origin: left;
   content: "";
 }
-.fun-content a:hover:before {
+.fun__content a:hover:before {
   transform: scaleX(1);
 }
 
-.fun-code-block {
+.fun__code-block {
   grid-column: 9/span 4;
 }
 
@@ -73,7 +78,9 @@
   font-weight: 700;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
-  border: 1px dashed var(--colorLime);
+  border-width: 0 1px 1px 0;
+  border-style: dashed;
+  border-color: var(--colorLime);
   padding: 0.8rem 1.6rem;
   display: inline-block;
   border-radius: 0 0 0.8rem 0;
@@ -87,6 +94,29 @@
 .ux-card-inner .card-details {
   font-size: 2.4rem;
   padding: 4rem 2.4rem;
+}
+
+@media (max-width: 1400px) {
+  .fun__content {
+    grid-column: 1/span 6;
+  }
+  .fun__content .title {
+    font-size: 4rem;
+    font-weight: 300;
+  }
+
+  .fun__code-block {
+    grid-column: 7/span 6;
+  }
+}
+@media (max-width: 720px) {
+  .fun__content {
+    grid-column: 1/span 12;
+  }
+
+  .fun__code-block {
+    grid-column: 1/span 12;
+  }
 }
 
 /*# sourceMappingURL=local.css.map */

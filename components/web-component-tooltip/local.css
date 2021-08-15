@@ -1,69 +1,98 @@
-.content-block {
-  grid-column: 1/span 8;
+.fun__main {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto;
 }
 
-.fun-code-block {
-  grid-column: 9/span 4;
-}
-
-.title {
-  font-size: 2.8rem;
-  font-weight: 300;
-}
-
-.subtitle {
-  font-size: 2.4rem;
-  font-weight: 300;
-}
-
-.image-grid {
+.grid__imagery {
+  grid-column-start: 1;
+  grid-column-end: 9;
+  grid-row-start: 1;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 6vh);
   grid-gap: 0px;
-  height: 80vh;
-  overflow: hidden;
   background-color: #14193a;
   padding: 24px;
 }
-.image-grid fun-tooltip {
+.grid__imagery fun-tooltip {
   position: absolute;
 }
-.image-grid figure {
+.grid__imagery figure {
   overflow: hidden;
   position: relative;
 }
-.image-grid .chicago-L {
-  grid-area: 1/1/7/8;
+.grid__imagery .chicago-L {
+  grid-column-start: 1;
+  grid-column-end: 8;
+  grid-row-start: 1;
+  grid-row-end: 7;
 }
-.image-grid .chicago-bridges {
-  grid-area: 7/2/11/7;
+.grid__imagery .chicago-nbc {
+  grid-column-start: 8;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 4;
 }
-.image-grid .chicago-towers {
+.grid__imagery .chicago-bridges {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 7;
+  grid-row-end: 13;
+}
+.grid__imagery .chicago-towers {
   grid-area: 4/7/13/13;
 }
-.image-grid .chicago-towers fun-tooltip {
-  top: 20%;
-}
-.image-grid .chicago-nbc {
-  grid-area: 1/6/5/11;
-}
 
-.content-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.content__block {
+  grid-column-start: 2;
+  grid-column-end: 7;
+  grid-row-start: 2;
+  font-size: 1.6rem;
   margin-bottom: 8rem;
 }
-.content-block .text {
-  font-size: 1.6rem;
-  width: 100%;
-  max-width: 60rem;
+.content__block .title {
+  font-size: 2.8rem;
+  font-weight: 300;
 }
 
-@media (max-width: 1700px) {
-  .fun-main {
-    grid-template-columns: 1fr;
+.fun__code-block {
+  grid-column-start: 9;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+@media (max-width: 1600px) {
+  .fun__main {
+    grid-template-rows: auto auto auto;
+  }
+
+  .grid__imagery {
+    grid-column-end: 13;
+  }
+
+  .content__block {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 2;
+  }
+
+  .fun__code-block {
+    grid-column-start: 7;
+    grid-row-start: 2;
+  }
+}
+@media (max-width: 1200px) {
+  .content__block {
+    grid-column-start: 2;
+    grid-column-end: 12;
+  }
+
+  .fun__code-block {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 3;
   }
 }
 
