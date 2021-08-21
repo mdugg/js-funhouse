@@ -1,8 +1,48 @@
+figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+code {
+  color: #fff;
+  background-color: #236700;
+  padding: 0.4rem 0.8rem;
+}
+
 .fun__main {
   display: flex;
   flex-direction: column;
   background-color: #11131d;
-  min-height: 100vh;
+}
+.fun__content {
+  padding: 8rem 0;
+}
+.fun__content .text {
+  grid-column: 4/span 6;
+  max-width: unset;
+  color: #8fa4b3;
+}
+.fun__list {
+  padding-left: 1.6rem;
+}
+.fun__list li {
+  position: relative;
+}
+.fun__list li:before {
+  position: absolute;
+  top: 0.9rem;
+  left: -1.6rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: #00a1ff;
+  content: "";
 }
 
 .product__page {
@@ -10,6 +50,11 @@
   grid-template-columns: 5fr 1fr;
   column-gap: 4rem;
   padding-left: 4rem;
+}
+.product__display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title__page {
@@ -22,10 +67,6 @@
   font-style: normal;
 }
 
-.product__content {
-  font-size: 1.4rem;
-}
-
 .text__intro {
   color: #8fa4b3;
   font-size: 2.4rem;
@@ -34,32 +75,63 @@
 }
 
 .text__standard {
+  max-width: 60rem;
   color: #8fa4b3;
   font-size: 1.6rem;
   font-weight: 400;
   text-align: center;
 }
+.text__standard a {
+  color: #8fa4b3;
+  display: inline-block;
+}
 
 .product__list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 2.4rem;
-  row-gap: 4rem;
+  column-gap: 4rem;
+  row-gap: 5.6rem;
 }
-
 .product__item {
   color: #8fa4b3;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
 .product__title {
   font-size: 1.6rem;
+  margin-bottom: 0;
 }
-
 .product__desc {
   font-size: 1.4rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+.product__price {
+  font-size: 1.4rem;
+  margin: 0;
+}
+.product__add {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #8fa4b3;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1.2rem 2.4rem;
+  background-color: transparent;
+  border: 1px solid #8fa4b3;
+}
+.product__add:hover {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px dashed #00a1ff;
+}
+.product__add svg {
+  fill: #8fa4b3;
+  height: 2rem;
+  margin-right: 0.8rem;
 }
 
 .button__group {
@@ -67,74 +139,89 @@
   flex-direction: row;
   justify-content: center;
 }
-
-.button, .button__link {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+.button__purchase {
   color: #8fa4b3;
-  line-height: 1;
-  padding: 1.2rem 2.4rem;
+  line-height: 2.8rem;
+  font-weight: 600;
+  border: 1px solid #8fa4b3;
+  padding: 0 1.2rem;
   background-color: transparent;
-  border: 1px solid #fff;
-  transition: all 0.3s ease-out;
 }
-.button:hover, .button__link:hover {
+.button__purchase:hover {
   cursor: pointer;
   background-color: transparent;
   border: 1px dashed #00a1ff;
 }
-.button svg, .button__link svg {
-  fill: #8fa4b3;
-  height: 2rem;
-  margin-right: 0.8rem;
-}
-.button__link {
-  text-decoration: none;
-}
-.button__link svg {
-  fill: none;
-  stroke: #8fa4b3;
-}
 
 .cart__sidebar {
-  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem;
   background-color: rgba(0, 0, 0, 0);
   transition: all 0.3s ease-out;
 }
 .cart__sidebar:hover {
   background-color: black;
 }
-
 .cart__item {
   color: #8fa4b3;
+  font-size: 1.4rem;
+  margin-bottom: 4rem;
 }
 .cart__item p {
   margin: 0.4rem;
 }
-
 .cart__title {
   font-size: 1.4rem;
   margin: 0.8rem 0;
 }
-
 .cart__price {
   font-size: 1.4rem;
 }
-
 .cart__actions {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding: 0.8rem;
+}
+.cart__qty {
+  max-width: 4rem;
+  color: #fff;
+  border: 1px solid #8fa4b3;
+  background-color: transparent;
+  padding: 0 0.8rem;
+}
+.cart__qty:hover {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px dashed #00a1ff;
+}
+.cart__remove {
+  color: #8fa4b3;
+  line-height: 2.8rem;
+  font-weight: 600;
+  border: 1px solid #8fa4b3;
+  padding: 0 1.2rem;
+  background-color: transparent;
+}
+.cart__remove:hover {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px dashed #00a1ff;
 }
 
 @media (max-width: 1800px) {
   .product__list {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+@media (max-width: 1200px) {
+  .product__list {
+    grid-template-columns: 1fr;
+  }
 
-  .product__item {
-    padding: 2.4rem;
+  .fun__content .text {
+    grid-column: 2/span 10;
   }
 }
 

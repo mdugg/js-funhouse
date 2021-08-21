@@ -9,7 +9,6 @@
     background-color: var(--colorBack);
     display:grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-columns: repeat(9, auto);
     column-gap: 2.4rem;
     row-gap: 4rem;
     padding: 4rem;
@@ -23,7 +22,7 @@
     font-size:6rem;
     font-weight: 300;
     grid-column: 1 / span 12;    
-    margin:0 0 2.4rem 0;
+    margin: 0;
 }
 .card__method {
     font-family: var(--fontMono);
@@ -54,18 +53,31 @@ code {
 
 .filter__lists {
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(200px, 30%)  minmax(200px, 30%);
     column-gap: 4rem;
 }
 .list__filter {
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
     row-gap:.8rem;
     font-size: 1.6rem;
+
+    dt, dd {
+        border-bottom: 1px dashed #fff;
+    }
 }
 
+@media (max-width: 1200px) {
+    .card__method {
+        grid-column: 1 / span 12;
+    }
+    .fun__code-block {
+        grid-column: 1 / span 12;
+    }
 
-
-@media (max-width: 1400px) {
-
+}
+@media (max-width: 720px) { 
+    .title {
+        font-size:4rem;
+    }
 }

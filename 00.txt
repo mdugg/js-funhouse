@@ -1,34 +1,32 @@
 Next:
-- local storage / toggle dark mode 
-    have fun with toggle 'button' day night icons illustrations smashing pumpkins style rotate
-    Dark Mode JavaScript toggle using localStorage
-    https://www.youtube.com/watch?v=wodWDIdV9BY
-- How to Add and Remove Class in Javascript  
-    https://www.youtube.com/watch?v=IKzlUvYSZO4
-    https://www.javascripttutorial.net/dom/css/remove-class-from-an-element/
 - fix shopping cart
-    lazy load solution for images
-    creative loader animation
-- web component modal
 - array methods
+- DOM manipulation
 - fetch api
 - form validation
-- function factories / higher order functions / classes
+- web component modal
 - about: tw / ln / prod design bio
+- lazy load images for cart
+    https://www.sitepoint.com/five-techniques-lazy-load-images-website-performance/
+- function factories / higher order functions / classes
 
 ===========================
 
 cd global/styles/
 sass --watch scss:css
 
+cd components/shopping-cart
+sass --watch local.scss:local.css
+
 cd components/array-methods
 sass --watch array-methods.scss:array-methods.css
+
 
 ===========================
 
 git status
 git add .
-git commit -m "refactor global nav"
+git commit -m "refactoring and latest 4 projects"
 git push
 
 --

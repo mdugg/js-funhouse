@@ -26,15 +26,10 @@
 			<div class="product__display">
 				<h2 class="title__page">Chattahoochee National Forest</h2>
 				<p class="text__intro">Purchase fine prints</p>
-				<p class="text__standard"><small>This is a test site only, no photographic prints can be purchased here.</small></p>
 				<p class="text__standard">
-					<a 	href="https://goo.gl/maps/J75R5Cz5sZYYVAGm9" 
-						target="_blank"
-						class="button__link">
-						<svg viewBox="0 0 24 24">
-							<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-							<circle cx="12" cy="10" r="3"></circle>
-						</svg>
+					This is a test site only, no photographic prints can be purchased here. They are personal photos taken from a hike in a beautiful area in North Georgia, USA.
+					<a href="https://goo.gl/maps/J75R5Cz5sZYYVAGm9"  
+						target="_blank" >
 						View on Google Maps
 					</a>
 				</p>
@@ -46,14 +41,26 @@
 					<strong>Total:</strong> 
 					<span class="cart__total-price">$0</span>
 				</p>
-				<button class="btn__purchase">Purchase</button>
+				<button class="button__purchase">Purchase</button>
 			</aside>
 		</section>
         <article class="fun__content">
 			<div class="text">
 			    <h2 class="title">Shopping Cart Demo</h2>
-				<ul>
-					<li>DOMContentLoaded Event</li>
+				<p>Exploring how a front-end 'add-to-cart' could work. Some points:</p>
+				<ul class="fun__list">
+					<li>
+						Calls a render function when <code>document.readyState === "complete"</code>
+					</li>
+					<li>
+						Native <code>loading="lazy"</code> for high res images being sourced from an S3 bucket. This was breaking the 'add to cart' functionality.
+					</li>
+					<li>
+						Product and cart components are created with JS modules.
+					</li>
+					<li>
+						To be done - only show cart if populated... must continue to practice DOM manipulation ;D
+					</li>
 				</ul>
 			</div>
         </article>
@@ -61,6 +68,117 @@
         <section class="fun__code-block">
             <pre class="language-js" rel="JS" >
                 <code>
+	document.onreadystatechange = function () {
+		if (document.readyState === "complete") {
+			var imgs = document.images,
+				len = imgs.length,
+				counter = 0;
+
+			[].forEach.call(imgs, function (img) {
+				if (img.complete) incrementCounter();
+				else img.addEventListener("load", incrementCounter, false);
+			});
+
+			function incrementCounter() {
+				counter++;
+				if (counter === len) {
+					productPageReady();
+				}
+			}
+		}
+	};
+
+	function productPageReady() {
+		let removeCartItemBtn = document.getElementsByClassName("cart__remove");
+		for (let i = 0; i < removeCartItemBtn.length; i++) {
+			let btn = removeCartItemBtn[i];
+			btn.addEventListener("click", removeCartItem);
+		}
+		let cartQtyInputs = document.getElementsByClassName("cart__qty");
+		for (let i = 0; i < cartQtyInputs.length; i++) {
+			let input = cartQtyInputs[i];
+			input.addEventListener("change", cartQtyChanged);
+		}
+		let addToCartButtons = document.getElementsByClassName("product__add");
+		for (let i = 0; i < addToCartButtons.length; i++) {
+			let addBtn = addToCartButtons[i];
+			addBtn.addEventListener("click", addToCartClicked);
+		}
+		document
+			.getElementsByClassName("btn__purchase")[0]
+			.addEventListener("click", purchaseClicked);
+	}
+
+	function addItemToCart(productTitle, productPrice, productImage) {
+		let cartItem = document.createElement("li");
+		cartItem.classList.add("cart__item");
+		let cartList = document.getElementsByClassName("cart__list")[0];
+		let cartDuplicate = cartList.getElementsByClassName("cart__title");
+		for (let i = 0; i < cartDuplicate.length; i++) {
+			if (cartDuplicate[i].innerText == productTitle) {
+				alert("This item is already added to the cart");
+				return;
+			}
+		}
+		let cartItemHTML = `
+			// cart html inserted to DOM
+		`;
+		cartItem.innerHTML = cartItemHTML;
+		cartList.append(cartItem);
+		cartItem
+			.getElementsByClassName("cart__remove")[0]
+			.addEventListener("click", removeCartItem);
+		cartItem
+			.getElementsByClassName("cart__qty")[0]
+			.addEventListener("change", cartQtyChanged);
+	}
+	function removeCartItem(event) {
+		let btnClicked = event.target;
+		btnClicked.parentElement.parentElement.remove();
+		updateCartTotal();
+	}
+	function cartQtyChanged(e) {
+		let input = e.target;
+		if (isNaN(input.value) || input.value <= 0) {
+			input.value = 1;
+		}
+		updateCartTotal();
+	}
+	function addToCartClicked(e) {
+		let addBtn = e.target;
+		let product = addBtn.parentElement.parentElement;
+		let productTitle =
+			product.getElementsByClassName("product__title")[0].innerText;
+		let productPrice =
+			product.getElementsByClassName("product__price")[0].innerText;
+		let productImage = product.getElementsByClassName("product__image")[0].src;
+		addItemToCart(productTitle, productPrice, productImage);
+		updateCartTotal();
+	}
+	function updateCartTotal() {
+		let cartList = document.getElementsByClassName("cart__list")[0];
+		let cartItem = cartList.getElementsByClassName("cart__item");
+		let cartTotal = 0;
+		for (let i = 0; i < cartItem.length; i++) {
+			let cartProduct = cartItem[i];
+			let cartPrice = cartProduct.getElementsByClassName("cart__price")[0];
+			let convertedPrice = parseFloat(cartPrice.innerText.replace("$", ""));
+			let cartQty = cartProduct.getElementsByClassName("cart__qty")[0];
+			let convertedQty = cartQty.value;
+			cartTotal = cartTotal + convertedPrice * convertedQty;
+		}
+		cartTotal = Math.round(cartTotal * 100) / 100;
+		document.getElementsByClassName("cart__total-price")[0].innerText =
+			"$" + cartTotal;
+	}
+	function purchaseClicked() {
+		alert("Thank you for your purchase");
+		let cartList = document.getElementsByClassName("cart__list")[0];
+		while (cartList.hasChildNodes()) {
+			cartList.removeChild(cartList.firstChild);
+		}
+		updateCartTotal();
+	}
                 </code>
             </pre>
         </section>

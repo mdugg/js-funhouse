@@ -1,3 +1,15 @@
+// if (document.readyState == "complete") {
+// 	document.addEventListener("DOMContentLoaded", productPageReady);
+// } else {
+// 	productPageReady();
+// }
+// document.addEventListener("DOMContentLoaded", productPageReady);
+// document.setTimeout(productPageReady, 5000);
+// document.onreadystatechange = function () {
+// 	if (document.readyState === "complete") {
+// 		productPageReady();
+// 	}
+// };
 document.onreadystatechange = function () {
 	if (document.readyState === "complete") {
 		var imgs = document.images,
@@ -20,6 +32,7 @@ document.onreadystatechange = function () {
 };
 
 function productPageReady() {
+	// alert("DOM Content Loaded");
 	let removeCartItemBtn = document.getElementsByClassName("cart__remove");
 	for (let i = 0; i < removeCartItemBtn.length; i++) {
 		let btn = removeCartItemBtn[i];
@@ -36,7 +49,7 @@ function productPageReady() {
 		addBtn.addEventListener("click", addToCartClicked);
 	}
 	document
-		.getElementsByClassName("button__purchase")[0]
+		.getElementsByClassName("btn__purchase")[0]
 		.addEventListener("click", purchaseClicked);
 }
 
