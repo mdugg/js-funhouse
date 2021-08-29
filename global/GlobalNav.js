@@ -6,13 +6,13 @@ const globalNav = [
 	// 	year: "2021",
 	// 	tags: ["lazy loading"],
 	// },
-	// {
-	// 	linkName: "Array Methods",
-	// 	linkURL: "/js-funhouse/components/array-methods/index.html",
-	// 	month: "08",
-	// 	year: "2021",
-	// 	tags: ["array methods", "filter method"],
-	// },
+	{
+		linkName: "Array Methods",
+		linkURL: "/js-funhouse/components/array-methods/index.html",
+		month: "08",
+		year: "2021",
+		tags: ["array methods", "filter method"],
+	},
 	{
 		linkName: "Dark Mode Toggle Using Local Storage",
 		linkURL: "/js-funhouse/components/dark-mode-toggle/index.html",

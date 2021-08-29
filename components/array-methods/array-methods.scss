@@ -13,9 +13,6 @@
     row-gap: 4rem;
     padding: 4rem;
 }
-.fun__code-block {
-    grid-column: 7 / span 6;
-}
 
 .title {
     font-family: var(--fontMono);
@@ -28,6 +25,10 @@
     font-family: var(--fontMono);
     grid-column: 1 / span 6;
 }
+.fun__code-block {
+    grid-column: 7 / span 6;
+}
+
 .subtitle {
     font-family: var(--fontMono);
     font-size:3.2rem;
@@ -46,7 +47,6 @@ p {
     line-height: 1.4;
 }
 code {
-    display:inline-block;
     background-color: var(--colorHighlight);
     padding:0 .4rem;
 }
@@ -55,15 +55,16 @@ code {
     display:grid;
     grid-template-columns: minmax(200px, 30%)  minmax(200px, 30%);
     column-gap: 4rem;
-}
-.list__filter {
-    display:grid;
-    grid-template-columns: auto auto;
-    row-gap:.8rem;
-    font-size: 1.6rem;
 
-    dt, dd {
-        border-bottom: 1px dashed #fff;
+    dl {
+        display:grid;
+        grid-template-columns: auto auto;
+        row-gap:.8rem;
+        font-size: 1.6rem;
+
+        dt, dd {
+            border-bottom: 1px dashed #fff;
+        }
     }
 }
 

@@ -13,10 +13,6 @@
   padding: 4rem;
 }
 
-.fun__code-block {
-  grid-column: 7/span 6;
-}
-
 .title {
   font-family: var(--fontMono);
   font-size: 6rem;
@@ -28,6 +24,10 @@
 .card__method {
   font-family: var(--fontMono);
   grid-column: 1/span 6;
+}
+
+.fun__code-block {
+  grid-column: 7/span 6;
 }
 
 .subtitle {
@@ -51,7 +51,6 @@ p {
 }
 
 code {
-  display: inline-block;
   background-color: var(--colorHighlight);
   padding: 0 0.4rem;
 }
@@ -61,14 +60,13 @@ code {
   grid-template-columns: minmax(200px, 30%) minmax(200px, 30%);
   column-gap: 4rem;
 }
-
-.list__filter {
+.filter__lists dl {
   display: grid;
   grid-template-columns: auto auto;
   row-gap: 0.8rem;
   font-size: 1.6rem;
 }
-.list__filter dt, .list__filter dd {
+.filter__lists dl dt, .filter__lists dl dd {
   border-bottom: 1px dashed #fff;
 }
 

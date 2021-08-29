@@ -1,22 +1,20 @@
 Next:
-- fix shopping cart
-- array methods
+x array methods
 - DOM manipulation
-- fetch api
+- fetch api (API rep)
 - form validation
 - web component modal
 - about: tw / ln / prod design bio
 - lazy load images for cart
     https://www.sitepoint.com/five-techniques-lazy-load-images-website-performance/
+- table sort
+- multi stage form
 - function factories / higher order functions / classes
 
 ===========================
 
 cd global/styles/
 sass --watch scss:css
-
-cd components/shopping-cart
-sass --watch local.scss:local.css
 
 cd components/array-methods
 sass --watch array-methods.scss:array-methods.css
@@ -26,7 +24,7 @@ sass --watch array-methods.scss:array-methods.css
 
 git status
 git add .
-git commit -m "refactoring and latest 4 projects"
+git commit -m "added to array methods project"
 git push
 
 --

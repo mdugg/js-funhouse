@@ -17,7 +17,7 @@
     <script src="../../global/js/prism.js" defer></script>       
     <script src="array-methods.js" defer></script> 
     <title>
-        8 Array Methods || Martin Duggan, Product Designer
+        Javascript Array Methods || Martin Duggan, Product Designer
     </title>
 </head>
 <body class="fun__grid">
@@ -25,24 +25,26 @@
         <fun-nav></fun-nav>
     </header>
     <main class="fun__main" role="main">
-        <h2 class="title">8 Array Methods</h2>
-        <article class="card__method" id="filter">
-            <h3 class="subtitle">Filter Method</h3>
-            <p>Filter a list of products to only show those less than or equal to $100.  The <code>filter</code> method does not mutate the original array. </p>      
+        <h2 class="title">Array Methods</h2>
+        <!-- filter method -->
+        <article class="card__method">
+            <h3 class="subtitle">filter Method</h3>
+            <p>Filter a list of products to only show those less than or equal to $100.  The <code>filter()</code> method does not mutate the original array. </p>      
             <div class="filter__lists">
                 <div class="col">
-                    <h4 class="sectiontitle">Full List</h4>
-                    <dl class="list__filter list__filter--original"></dl>
+                    <h4 class="sectiontitle">Product List</h4>
+                    <dl id="productList"></dl>
                 </div>
                 <div class="col">
-                    <h4 class="sectiontitle">Filtered List</h4>
-                    <dl class="list__filter list__filter--filtered"></dl>
+                    <h4 class="sectiontitle">Result:</h4>
+                    <dl id="filterList"></dl>
                 </div>
             </div>        
         </article>
         <section class="fun__code-block">
             <pre class="language-js" rel="JS" >
                 <code>
+    // original product list
     const products = [
         { name: "Bike", price: 100 },
         { name: "TV", price: 200 },
@@ -53,15 +55,74 @@
         { name: "Keyboard", price: 25 },
         { name: "Desk", price: 600 },
     ];
+    // filter() method
     const filteredProducts = products.filter((product) => {
         return product.price <= 100;
-        // if true gets pushed to new array
+        // if true gets pushed to new array, no mutation
     });
-    // use .map to return DOM lists
+    // use map() to create HTML
                 </code>
             </pre>
         </section>
-        <p>...to be continued</p>
+        <!-- find method -->
+        <article class="card__method" id="filter">
+            <h3 class="subtitle">find Method</h3>
+            <p><code>find()</code> the first matching product (eg Book) from the 'Product List' above. <code>find()</code> returns an Object. This <a href="https://forum.freecodecamp.org/t/map-is-suddenly-not-a-function/134196" target="_blank">creates an error</a> when using <code>map()</code> to output HTML of the result. </p>      
+            <div class="filter__lists">
+                <div class="col">
+                    <h4 class="sectiontitle">Result:</h4>
+                    <dl id="findList"></dl>
+                </div>
+            </div>        
+        </article>
+        <section class="fun__code-block">
+            <pre class="language-js" rel="JS" >
+                <code>
+    // find() method
+    const foundProduct = products.find((product) => {
+        // returns first match
+        return product.name === "Book";
+    });
+    // find() returns an Object, wrap in an array to .map to HTML
+    const foundToArray = [foundProduct];
+                </code>
+            </pre>
+        </section>
+        <!-- forEach method -->
+        <article class="card__method" id="filter">
+            <h3 class="subtitle">forEach Method</h3>
+            <p><code>forEach()</code> is a neater syntax than <code>for()</code> loops, <a href="https://codeburst.io/javascript-map-vs-foreach-f38111822c0f" target="_blank">it does not return anything (undefined)</a>. It takes a callback function on each item in the array, changing the original array. Show a 20% discount on all products:</p>      
+            <div class="filter__lists">
+                <div class="col">
+                    <h4 class="sectiontitle">Result:</h4>
+                    <dl id="loopList"></dl>
+                </div>
+            </div>        
+        </article>
+        <section class="fun__code-block">
+            <pre class="language-js" rel="JS" >
+                <code>
+    // forEach() method           
+    products.forEach((product) => {
+        // template literal
+        const dlRow = `	<dt>${product.name}</dt>
+                        <dd><span style="text-decoration:line-through;">$${product.price}</span>
+                            <span>Sale: $${product.price * 0.8}</span>
+                        </dd>`;
+        const dl = document.getElementById("loopList");
+        dl.insertAdjacentHTML("afterbegin", dlRow);
+        /*
+            beforebegin - before element
+            afterbegin - first child
+            beforeend - last child
+            afterend - after element
+        */
+    });
+
+                </code>
+            </pre>
+        </section>
+        <p>... to be continued</p>
     </main>
 </body>
 </html>
