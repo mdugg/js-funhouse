@@ -24,7 +24,7 @@ sass --watch array-methods.scss:array-methods.css
 
 git status
 git add .
-git commit -m "added to array methods project"
+git commit -m "content tweaks to array methods project"
 git push
 
 --
