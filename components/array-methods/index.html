@@ -29,7 +29,8 @@
         <!-- filter method -->
         <article class="card__method">
             <h3 class="subtitle">filter()</h3>
-            <p>Filter a list of products to only show those less than or equal to $100.  The <code>filter()</code> method does not mutate the original array. </p>      
+            <p>Filter a list of products to only show those less than or equal to $100.  The <code>filter()</code> method does not mutate the original array. </p>   
+            <p>btw... I really like Sarah Drasner's <a href="https://arrayexplorer.netlify.app/" target="_blank">Array Explorer</a></p>   
             <div class="filter__lists">
                 <div class="col">
                     <h4 class="sectiontitle">Product List</h4>
@@ -111,18 +112,143 @@
                         </dd>`;
         const dl = document.getElementById("loopList");
         dl.insertAdjacentHTML("afterbegin", dlRow);
-        /*
-            beforebegin - before element
-            afterbegin - first child
-            beforeend - last child
-            afterend - after element
-        */
     });
 
                 </code>
             </pre>
         </section>
-        <p>... to be continued</p>
+        <!-- some method -->
+        <article class="card__method" id="filter">
+            <h3 class="subtitle">some()</h3>
+            <p><code>some()</code> just returns true or false. If <strong>any</strong> items in the array are true, the entire array returns true.</p>
+            <p>Are there products for less than $50 ?</p>      
+            <div class="filter__lists">
+                <div class="col">
+                    <h4 class="sectiontitle">Result:</h4>
+                    <p id="someResult"></p>
+                </div>
+            </div>        
+        </article>
+        <section class="fun__code-block">
+            <pre class="language-js" rel="JS" >
+                <code>
+    // some() method           
+    const someMethod = products.some((product) => {
+        return product.price <= 100;
+    });
+    const hasInexpensiveProducts = () => {
+        const yup = "Yes, there are products available for less than $50";
+        const nope = "No, there are not products available for less than $50";
+        const someResult = document.getElementById("someResult");
+        if (someMethod === true) {
+            return (someResult.innerText = yup);
+        } else {
+            return (someResult.innerText = nope);
+        }
+    };
+    hasInexpensiveProducts(someMethod);
+
+                </code>
+            </pre>
+        </section>
+        <!-- every method -->
+        <article class="card__method" id="filter">
+            <h3 class="subtitle">every()</h3>
+            <p><code>every()</code> just returns true or false. Unlike <code>some()</code>, <strong>all</strong> of the array items must return true for the array to be true. </p>
+            <p>Are all products less than $500 ?</p>      
+            <div class="filter__lists">
+                <div class="col">
+                    <h4 class="sectiontitle">Result:</h4>
+                    <p id="everyResult"></p>
+                </div>
+            </div>
+        </article>
+        <section class="fun__code-block">
+            <pre class="language-js" rel="JS" >
+                <code>
+    // every() method           
+    const everyMethod = products.every((product) => {
+        return product.price <= 500;
+    });
+    const expensiveProducts = () => {
+        const yup = "Yes, all products are less than $500";
+        const nope = "No, there are products which are more expensive than $500";
+        const everyResult = document.getElementById("everyResult");
+        if (everyMethod === true) {
+            return (everyResult.innerText = yup);
+        } else {
+            return (everyResult.innerText = nope);
+        }
+    };
+    expensiveProducts(everyMethod);
+
+                </code>
+            </pre>
+        </section>
+        <!-- reduce method -->
+        <article class="card__method" id="filter">
+            <h3 class="subtitle">reduce()</h3>
+            <p><code>reduce()</code> does an operation on the array and returns a combination of possibly different operations. Its parameters are an item and a property and a starting point, like 0 (zero)</p>
+            <p>Get the total cost of all products:</p>      
+            <div class="filter__lists">
+                <div class="col">
+                    <h4 class="sectiontitle">Result:</h4>
+                    <p id="reduceResult"></p>
+                </div>
+            </div>
+        </article>
+        <section class="fun__code-block">
+            <pre class="language-js" rel="JS" >
+                <code>
+    // reduce() method           
+    const reduceMethod = products.reduce((currentTotal, product) => {
+        return product.price + currentTotal;
+    }, 0);
+    console.log(reduceMethod);
+    const reduceResult = () => {
+        const resultText = "The total cost of inventory is $" + reduceMethod;
+        const reduceResultDOM = document.getElementById("reduceResult");
+        return reduceResultDOM.insertAdjacentHTML("afterbegin", resultText);
+    };
+    reduceResult(reduceMethod);
+                </code>
+            </pre>
+        </section>
+        <!-- includes method -->
+        <article class="card__method" id="filter">
+            <h3 class="subtitle">includes()</h3>
+            <p><code>includes()</code> doesn't take a function as an argument, just a number or string and returns true or false if this value exists in the array. So, first we <code>map()</code> the product names to a new array and run a query on that.</p>
+            <p>Is there a Bike on the list of products?</p>      
+            <div class="filter__lists">
+                <div class="col">
+                    <h4 class="sectiontitle">Result:</h4>
+                    <p id="includesResult"></p>
+                </div>
+            </div>
+        </article>
+        <section class="fun__code-block">
+            <pre class="language-js" rel="JS" >
+                <code>
+    // includes() method
+    const productNames = products.map((product) => {
+        return product.name;
+    });
+    const productSearchString = "Bike";
+    const includesMethod = productNames.includes(productSearchString);
+    const includesResult = () => {
+        const yup = `Yes, there is a ${productSearchString} in stock`;
+        const nope = `No, we don't have a ${productSearchString} in stock`;
+        const includesResultDOM = document.getElementById("includesResult");
+        if (includesMethod === true) {
+            return (includesResultDOM.innerText = yup);
+        } else {
+            return (includesResultDOM.innerText = nope);
+        }
+    };
+    includesResult(includesMethod);       
+                </code>
+            </pre>
+        </section>
     </main>
 </body>
 </html>

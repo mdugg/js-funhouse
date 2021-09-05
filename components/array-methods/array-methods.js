@@ -87,3 +87,69 @@ products.forEach((product) => {
 		afterend - after element
 	*/
 });
+
+// some() method
+const someMethod = products.some((product) => {
+	return product.price <= 100;
+});
+const hasInexpensiveProducts = () => {
+	const yup = "Yes, there are products available for less than $50";
+	const nope = "No, there are not products available for less than $50";
+	const someResult = document.getElementById("someResult");
+	if (someMethod === true) {
+		// return (someResult.innerHTML = yup);
+		return (someResult.innerText = yup);
+		// return (someResult.textContent = yup);
+		// return someResult.insertAdjacentHTML("afterbegin", yup);
+		// return someResult.appendChild(yup) error - not a node;
+		// return someResult.createTextNode(yup); error - not a function
+	} else {
+		return (someResult.innerText = nope);
+	}
+};
+hasInexpensiveProducts(someMethod);
+
+// every() method
+const everyMethod = products.every((product) => {
+	return product.price <= 500;
+});
+const expensiveProducts = () => {
+	const yup = "Yes, all products are less than $500";
+	const nope = "No, there are products which are more expensive than $500";
+	const everyResult = document.getElementById("everyResult");
+	if (everyMethod === true) {
+		return (everyResult.innerText = yup);
+	} else {
+		return (everyResult.innerText = nope);
+	}
+};
+expensiveProducts(everyMethod);
+
+// reduce() method
+const reduceMethod = products.reduce((currentTotal, product) => {
+	return product.price + currentTotal;
+}, 0 /* second parameter is the starting point */);
+const reduceResult = () => {
+	const resultText = "The total cost of inventory is $" + reduceMethod;
+	const reduceResultDOM = document.getElementById("reduceResult");
+	return reduceResultDOM.insertAdjacentHTML("afterbegin", resultText);
+};
+reduceResult(reduceMethod);
+
+// includes() method
+const productNames = products.map((product) => {
+	return product.name;
+});
+const productSearchString = "Bike";
+const includesMethod = productNames.includes(productSearchString);
+const includesResult = () => {
+	const yup = `Yes, there is a ${productSearchString} in stock`;
+	const nope = `No, we don't have a ${productSearchString} in stock`;
+	const includesResultDOM = document.getElementById("includesResult");
+	if (includesMethod === true) {
+		return (includesResultDOM.innerText = yup);
+	} else {
+		return (includesResultDOM.innerText = nope);
+	}
+};
+includesResult(includesMethod);

@@ -1,8 +1,7 @@
 Next:
-x array methods
 - DOM manipulation
 - fetch api (API rep)
-- form validation
+- form validation, stepped, animated
 - web component modal
 - about: tw / ln / prod design bio
 - lazy load images for cart
