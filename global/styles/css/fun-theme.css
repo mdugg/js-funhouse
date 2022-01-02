@@ -1,8 +1,14 @@
 .fun__grid {
   display: grid;
-  grid-template-columns: 28rem 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: [topbar] 6rem [content];
   padding: 0;
   margin: 0;
+}
+
+.fun__home {
+  grid-template-rows: [topbar] 6rem [content] calc(100vh - 6rem);
+  overflow: hidden;
 }
 
 .md {

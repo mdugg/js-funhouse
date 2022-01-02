@@ -1,29 +1,27 @@
 Next:
-- DOM manipulation
-- fetch api (API rep)
-- form validation, stepped, animated
+- about: prod design bio // what js-funhouse is about, sandbox for vanilla JS // s3 bucket for profile pics
+- search app / fetch api (API rep)
+- form validation, multi stage
 - web component modal
-- about: tw / ln / prod design bio
-- lazy load images for cart
-    https://www.sitepoint.com/five-techniques-lazy-load-images-website-performance/
-- table sort
-- multi stage form
-- function factories / higher order functions / classes
+- twitter api
+- scroll animations / events
+- screen scraping with JS
+- accessibility - layer in
+- JIRA drag and drop, on drop event re-number, store order in local storage
 
 ===========================
 
 cd global/styles/
 sass --watch scss:css
 
-cd components/array-methods
-sass --watch array-methods.scss:array-methods.css
-
+cd projects/intersectionObserver
+sass --watch intersection-observer.scss:intersection-observer.css
 
 ===========================
 
 git status
 git add .
-git commit -m "content tweaks to array methods project"
+git commit -m "add the intersection observer project"
 git push
 
 --

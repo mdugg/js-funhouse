@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDN -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link href="../../global/styles/css/global.css" rel="stylesheet">       
+    <link href="../../global/styles/css/prism.css" rel="stylesheet">       
+    <link href="dom-manipulation.css" rel="stylesheet">   
+    <!-- JS -->
+    <script src="../../global/GlobalHeader.js" type="module"></script>
+    <script src="../../global/js/prism.js" defer></script>       
+    <script src="dom-manipulation.js" defer></script> 
+    <title>
+        DOM Manipulation || Martin Duggan, Product Designer
+    </title>
+</head>
+<body class="fun__grid">
+    <header class="fun__header">
+        <fun-nav></fun-nav>
+    </header>
+    <!-- web dev simplified dom manipulation 
+    - https://www.youtube.com/watch?v=y17RuWkWdn8 -->
+    <main class="fun__main" role="main">
+        <h2 class="title">DOM Manipulation</h2>
+        <!-- append() -->
+        <article class="card">
+            <div class="card__content">
+                <h3 class="subtitle">Adding Elements</h3>
+                <p> Add an element to the page using <code>append()</code> which is more versatile than <code>appendChild()</code> as it can add strings or numbers as well as create HTML nodes.</p>         
+            </div>
+            <div class="card__demo">
+                <div class="demo__col">
+                    <button id="btnAppend" class="button">
+                        append()
+                    </button>
+                    <p id="append"></p>
+                </div>
+            </div>
+        </article>
+        <section class="fun__code-block">
+            <pre class="language-js" rel="JS" >
+                <code>
+    // append()
+    const btnAppend = document.getElementById("btnAppend");
+    btnAppend.addEventListener("click", (event) => {
+        const appendId = document.getElementById("append");
+        appendId.append(
+            "This text string does not need an HTML node to be inserted.",
+            "This is a second parameter"
+        );
+    });                </code>
+            </pre>
+        </section>
+        <!-- append() -->
+        <article class="card">
+            <div class="card__content">
+                <h3 class="subtitle">Creating Elements</h3>
+                <p> Add </p>         
+            </div>
+            <div class="card__demo">
+                <div class="demo__col" id="appendChild">
+                    <button id="btnAppendChild" class="button">
+                        appendChild()
+                    </button>
+                </div>
+            </div>
+        </article>
+        <section class="fun__code-block">
+            <pre class="language-js" rel="JS" >
+                <code>
+    // append()
+    const btnAppend = document.getElementById("btnAppend");
+    btnAppend.addEventListener("click", (event) => {
+        const appendId = document.getElementById("append");
+        appendId.append(
+            "This text string does not need an HTML node to be inserted.",
+            "This is a second parameter"
+        );
+    });                </code>
+            </pre>
+        </section>
+
+    </main>
+</body>
+</html>
