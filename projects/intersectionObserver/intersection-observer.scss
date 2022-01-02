@@ -1,0 +1,115 @@
+// variables
+:root {
+    --font: 'EB Garamond', serif;
+    --fontSecondary: 'Poppins', sans-serif;
+    --colorMain: #1622bf;
+    --colorBack: #e8ebf3;
+}
+// template over-rides
+.fun__main {
+    color: var(--colorMain);
+    background-color: var(--colorBack);
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .project {
+        padding: 8rem;
+    }
+}
+.fun__code-block {
+}
+// typography
+.title {
+    font-family: var(--font);
+    font-size:12rem;
+    line-height: .8;
+    font-weight: 300;
+    margin: 0;
+}
+.subtitle {
+    font-family: var(--font);
+    font-size:3.2rem;
+    font-weight: 300;
+    margin:0 0 2.4rem 0;
+}
+.sectiontitle {
+    font-family: var(--font);
+    font-size:2rem;
+    font-weight: 300;
+    margin:0 0 1.2rem 0;
+}
+p {
+    max-width: 60rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+}
+code {
+    color: #fff;
+    padding:0 .4rem;
+}
+// components
+.product-list {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 40rem;
+    padding: 0;
+    margin: 1.6rem 0;
+    border: 1px dashed var(--colorMain);
+    border-radius: .8rem;
+    opacity: 0;
+    transform: translateX(4rem);
+    transition: all .3s ease-out;
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        padding: 0;
+        margin: 0;
+    }
+    .image {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        border-right: 1px dashed var(--colorMain);
+    }
+    .text {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        padding: 4rem;
+    }
+    .title {
+        font-family: var(--fontSecondary);
+        font-weight: 500;
+        font-size: 1.8rem;
+    }
+    .icon {
+        height: 3.2rem;
+        fill: var(--colorMain);
+    }
+    &.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@media (max-width: 1200px) {
+
+}
+@media (max-width: 720px) { 
+
+}
