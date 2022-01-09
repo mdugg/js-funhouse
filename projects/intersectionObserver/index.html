@@ -29,30 +29,44 @@
         <section class="project">
             <article class="content">
                 <h2 class="title">Intersection Observer API</h2>
-                <p>First play with Intersection Observer API. Scroll down to see, lazy-loads <a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">MDN</a></p>
+                <p>HTML gets added to the page on-scroll; lazy-loaded in after last card is detected in viewport; will scroll infinitely. </p>
+                <p>There is a <code>rootMargin</code> set to leave space between bottom of viewport and last card.</p>
+                <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">Intersection Observer API on MDN</a></p>
             </article>
             <ul class="product-list"> </ul>
         </section>
         <section class="fun__code-block">
             <pre class="language-js" rel="JS" >
                 <code>
-    const cards = document.querySelectorAll(".card");
+    // generate an HTML product card
+    const productList = document.querySelector(".product-list");
+    const productItem = document.createElement("li");
+    productItem.classList.add("card");
+    const productCardHTML = ' ';// template literal of the HTML goes here
+    productItem.innerHTML = productCardHTML;
+    productList.append(productItem);
 
+    const productCards = document.querySelectorAll(".card");
+        
     const observer = new IntersectionObserver(
-        (entries) => {
+        (entries, observer) => {
             entries.forEach((entry) => {
                 entry.target.classList.toggle("show", entry.isIntersecting);
-                // add class when visibility true
+                // add remove class when visibility true false
                 if (entry.isIntersecting) observer.unobserve(entry.target);
                 // when loaded stop observing
             });
         }, // options:
         {
+            // only set to true when entire element is in viewport
+            // threshold is an options argument between 0 to 1 , acts as a percentage
             threshold: 1, // 100% of element must be in viewport
+            rootMargin: "-120px", // makes root container smaller
+            // rootMargin can also start the creation of new lazy load elements before visible
+            // root: document.querySelector(".fun__main"),
         }
     );
-
-    // dynamically add new cards after last visible one
+    // lazy load new cards infinitely on scroll
     const lastCardObserver = new IntersectionObserver((entries) => {
         const lastCard = entries[0];
         if (!lastCard.isIntersecting) return;
@@ -61,14 +75,23 @@
         lastCardObserver.unobserve(lastCard.target);
         lastCardObserver.observe(document.querySelector(".card:last-child"));
     }, {});
-
     lastCardObserver.observe(document.querySelector(".card:last-child"));
 
-    cards.forEach((card) => {
-        observer.observe(card);
+    // observer.observe(cards[0]);
+    productCards.forEach((productCard) => {
+        observer.observe(productCard);
     });
 
-    // function to dynamically create new cards
+    // dynamically add cards
+    function loadNewCards() {
+        for (let i = 0; i < 1; i++) {
+            const newProductItem = document.createElement("li");
+            newProductItem.classList.add("card");
+            newProductItem.innerHTML = productCardHTML;
+            productList.append(newProductItem);
+            observer.observe(newProductItem);
+        }
+    }
 
                 </code>
             </pre>

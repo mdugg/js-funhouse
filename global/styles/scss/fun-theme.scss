@@ -1,6 +1,6 @@
 $md-green: #B5F100;
-$illus-red: #dc5f5f;
-$illus-red-dark: #b95454;
+$illus-back: #38b9ad;
+$code-back: #232534;
 
 .fun__grid {
     display:grid;
@@ -11,11 +11,47 @@ $illus-red-dark: #b95454;
 }
 .fun__home {
     grid-template-rows: [topbar] 6rem [content] calc(100vh - 6rem);
-    overflow: hidden;
+
+    .fun__content {
+        background-color: $illus-back;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.fun__illustration {
+    height: 100%;
+}
+.fun__svg--large {
+    fill: $md-green;
+    height: 100%;
+}
+.fun__svg--small {
+    @extend .fun__svg--large;
+    display: none;
+}
+
+.fun-blur {
+    filter: blur(10px);
+}
+.fun__code-block {
+    background-color: $code-back;
 }
 
 @media screen and (max-width: 960px){
     .fun__grid {
         grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width: 720px){
+    .fun__grid {
+        grid-template-columns: 1fr;
+    }
+    .fun__svg--large {
+        display: none;
+    }
+    .fun__svg--small {
+        display: block;
     }
 }

@@ -3,6 +3,7 @@
   --fontSecondary: "Poppins", sans-serif;
   --colorMain: #1622bf;
   --colorBack: #e8ebf3;
+  --colorTint: #b6bbfd;
 }
 
 .fun__main {
@@ -46,8 +47,10 @@ p {
 }
 
 code {
-  color: #fff;
+  display: inline-block;
   padding: 0 0.4rem;
+  background-color: var(--colorTint);
+  border-radius: 0.4rem;
 }
 
 .product-list {

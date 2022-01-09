@@ -21,7 +21,7 @@ sass --watch intersection-observer.scss:intersection-observer.css
 
 git status
 git add .
-git commit -m "add the intersection observer project"
+git commit -m "nav cleanup"
 git push
 
 --

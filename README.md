@@ -1,4 +1,4 @@
 # js-funhouse
-Sandbox for front-end explorations from the perspective of a digital Product Designer
+Sandbox for exploring vanilla JavaScript APIs, CSS Grid and other things of interest from a Product Design perspective
 
-(https://mdugg.github.io/js-funhouse/)
+https://www.linkedin.com/in/martinduggan/

@@ -4,6 +4,7 @@
     --fontSecondary: 'Poppins', sans-serif;
     --colorMain: #1622bf;
     --colorBack: #e8ebf3;
+    --colorTint: #b6bbfd;
 }
 // template over-rides
 .fun__main {
@@ -46,8 +47,10 @@ p {
     line-height: 1.4;
 }
 code {
-    color: #fff;
+    display: inline-block;
     padding:0 .4rem;
+    background-color: var(--colorTint);
+    border-radius: .4rem;
 }
 // components
 .product-list {
