@@ -263,14 +263,6 @@ class GlobalHeader extends HTMLElement {
 						<span class="group">
 							<span class="title">${obj.linkName}</span>
 							<span class="description">${obj.desc}</span>
-							<span class="tags"> 
-								<strong>Tags:</strong> 
-								${obj.tags
-									.map((tag) => {
-										return `<span>${tag}</span>`;
-									})
-									.join("")}
-							</span>
 							<span class="published"> 
 								<strong>Published:</strong> 
 								${obj.month}-${obj.year}
@@ -293,3 +285,13 @@ class GlobalHeader extends HTMLElement {
 }
 
 window.customElements.define("fun-nav", GlobalHeader);
+
+//
+// <span class="tags">
+// 	<strong>Tags:</strong>$
+// 	{obj.tags
+// 		.map((tag) => {
+// 			return `<span>${tag}</span>`;
+// 		})
+// 		.join("")}
+// </span>;

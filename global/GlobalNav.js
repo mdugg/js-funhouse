@@ -1,5 +1,13 @@
 const globalNav = [
 	{
+		linkName: "Searching the Wikipedia API",
+		linkURL: "/js-funhouse/projects/search-wikipedia-api/index.html",
+		desc: "Searching the Wikipedia API",
+		month: "04",
+		year: "2022",
+		tags: ["API", "fetch()", "search", "forms"],
+	},
+	{
 		linkName: "Intersection Observer API",
 		linkURL: "/js-funhouse/projects/intersectionObserver/index.html",
 		desc: "First play with the Intersection Observer API, adding HTML components on-scroll ",

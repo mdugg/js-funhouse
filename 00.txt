@@ -1,12 +1,10 @@
 Next:
-- about: prod design bio // what js-funhouse is about, sandbox for vanilla JS // s3 bucket for profile pics
-- search app / fetch api (API rep)
-- form validation, multi stage
+- image download states
+- color palette separate project
+- video api - stitch together videos / custom controls / access data, print to HTML
+- google maps api (Irish Castles with info card / instagram photo ??)
+- form validation, multi stage, regex (cheatsheet)
 - web component modal
-- twitter api
-- scroll animations / events
-- screen scraping with JS
-- accessibility - layer in
 - JIRA drag and drop, on drop event re-number, store order in local storage
 
 ===========================
@@ -14,14 +12,14 @@ Next:
 cd global/styles/
 sass --watch scss:css
 
-cd projects/intersectionObserver
-sass --watch intersection-observer.scss:intersection-observer.css
+cd projects/search-wikipedia-api
+sass --watch search-wikipedia.scss:search-wikipedia.css
 
 ===========================
 
 git status
 git add .
-git commit -m "nav cleanup"
+git commit -m "search wikipedia and hide the project tags for now"
 git push
 
 --

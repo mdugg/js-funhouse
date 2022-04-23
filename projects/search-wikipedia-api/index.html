@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDN -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@100&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link href="../../global/styles/css/global.css" rel="stylesheet">       
+    <link href="../../global/styles/css/prism.css" rel="stylesheet">       
+    <link href="search-wikipedia.css" rel="stylesheet">   
+    <!-- JS -->
+    <script src="../../global/GlobalHeader.js" type="module"></script>
+    <script src="../../global/js/prism.js" defer></script>       
+    <script src="searchWikipediaAPI.js" type="module"></script> 
+    <title>
+        Search Wikipedia API || Martin Duggan, Product Designer
+    </title>
+</head>
+<body class="fun__grid">
+    <header class="fun__header">
+        <fun-nav></fun-nav>
+    </header>
+    <main class="fun__main" role="main">
+        <section class="project">
+            <article class="content">
+                <h2 class="title">Search the 
+                    <a href="https://en.wikipedia.org/w/api.php" target="_blank">
+                        Wikipedia API
+                    </a>
+                </h2>
+            </article>
+            <!---->
+            <form id="searchBarForm" role="search" class="search__form">
+                <!-- ARIA landmark roles -->
+                <fieldset class="form__group">
+                    <label for="searchInput" class="visually-hidden">
+                        Enter a search term or phrase
+                    </label>
+                    <input 
+                        class="search__input"
+                        id="searchInput" 
+                        type="text" 
+                        autocomplete="off" 
+                        role="searchbox" 
+                    />
+                    <!-- type="search" adds a clear button in Chrome, but not other browsers-->
+                    <div class="search__input-controls">
+                        <button 
+                            id="clearButton" 
+                            class="visually-hidden button__search-clear" 
+                            aria-label="Clear search terms" 
+                            tab-index="0">
+                                <svg class="icon__search-clear" viewBox="0 0 512 512">
+                                    <path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"/>
+                                </svg>
+                        </button>
+                        <button 
+                            id="searchButton" 
+                            class="button__search" 
+                            type="submit" 
+                            aria-label="Submit button">
+                                <svg class="icon__search" viewBox="0 0 24 24">
+                                    <g>
+                                        <path d="M9.26,18a8.5,8.5,0,1,1,8.5-8.5A8.51,8.51,0,0,1,9.26,18Zm0-16a7.5,7.5,0,1,0,7.5,7.5A7.52,7.52,0,0,0,9.26,2Z" />
+                                        <path d="M24.26,25a.52.52,0,0,1-.35-.14l-9.35-9.35a.5.5,0,1,1,.71-.71l9.34,9.35a.5.5,0,0,1-.35.85Z" />
+                                    </g>
+                                </svg>
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+            <!---->
+            <section class="results">
+                <h2 class="visually-hidden">Search results</h2>
+                <small id="stats" class="" aria-live="assertive"></small>
+                <ul id="searchResults" class="search__results">
+                </ul>
+            </section>
+        </section>
+        <aside>
+            <h4>main script</h4>
+            <section class="fun__code-block">
+                <pre class="language-js" rel="JS" >
+    <code>
+import {
+    clearSearchText,
+    setSearchFocus,
+    showClearTextButton,
+    clearPushListener,
+} from "./searchBar.js";
+import {
+    deleteSearchResults,
+    buildSearchResults,
+    clearStatsLine,
+    setStatsLine,
+} from "./searchResults.js";
+import { getSearchTerm, retrieveSearchResults } from "./dataFunctions.js";
+
+document.addEventListener("readystatechange", (event) => {
+    if (event.target.readyState === "complete") {
+        initApp(); // page has loaded fully
+    }
+});
+
+const initApp = () => {
+    // set the focus immediately on text input
+    setSearchFocus();
+    // 3 listeners for the clear text button
+    const search = document.getElementById("searchInput");
+    search.addEventListener("input", showClearTextButton);
+    const clear = document.getElementById("clearButton");
+    clear.addEventListener("click", clearSearchText);
+    // listen for the enter key:
+    clear.addEventListener("keydown", clearPushListener);
+
+    // 1 listener on the form:
+    const form = document.getElementById("searchBarForm");
+    form.addEventListener("submit", submitTheSearch);
+};
+
+// procedural workflow function
+// call other functions in order needed
+// on submit event :
+const submitTheSearch = (event) => {
+    event.preventDefault(); // prevent form from re-loading the page
+    // delete search results and show new results
+    deleteSearchResults();
+    // process the search
+    processTheSearch();
+    // set the focus event searchBar.js
+    setSearchFocus();
+};
+
+// procedural, so not inside a module
+// async function interacts with Wikipedia API
+const processTheSearch = async () => {
+    // clear the stats line
+    clearStatsLine();
+    const searchTerm = getSearchTerm();
+    // if search input is empty exit script, no API call yet
+    if (searchTerm === "") return;
+    // but if it's not...
+    // start the async await process and wait for results
+    const resultArray = await retrieveSearchResults(searchTerm); // defined in dataFunctions.js
+    // are there results ?
+    if (resultArray.length) buildSearchResults(resultArray); // build search results
+    // set stats line
+    setStatsLine(resultArray.length);
+};
+
+    </code>
+                </pre>
+            </section>
+            <h4>dataFunctions.js</h4>
+            <section class="fun__code-block">
+                <pre class="language-js" rel="JS" >
+                    <code>
+export const getSearchTerm = () => {
+	// get value from search text input and get rid of white space
+	const rawSearchTerm = document.getElementById("searchInput").value.trim();
+	// regex for multiple spaces in a row within search term / phrase
+	const regex = /[ ]{2,}/gi;
+	// replace multiple spaces with 1 space
+	const searchTerm = rawSearchTerm.replaceAll(regex, " ");
+	return searchTerm;
+};
+
+export const retrieveSearchResults = async (searchTerm) => {
+	const wikiSearchString = getWikiSearchString(searchTerm);
+	const wikiSearchResults = await requestData(wikiSearchString);
+	// define empty array
+	// array will remain empty if hasOwnProperty is false
+	let resultArray = [];
+	if (wikiSearchResults.hasOwnProperty("query")) {
+		// search for the property in the JSON - true false
+		// if true has the query property
+		// if false will skip past this
+		resultArray = processWikiResults(wikiSearchResults.query.pages);
+	}
+	return resultArray;
+};
+
+const getWikiSearchString = (searchTerm) => {
+	// tell Wikipedia API the maximum amount of characters we want back
+	const maxChars = getMaxChars();
+	const rawSearchString = `
+        https://en.wikipedia.org/w/api.php
+        ?action=query // type of action
+            &generator=search // other options, allows search of more than 1 property
+                &gsrsearch=${searchTerm} // saves having to do multiple queries, packages images and text
+                &gsrlimit=20 // limit amount of results
+            &prop=pageimages|extracts
+                &exchars=${maxChars} 
+                &exintro
+                &explaintext
+                &exlimit=max
+            &format=json
+            &origin=* // wildcard helps be unauthenticated and avoid CORS error`;
+	return searchString;
+};
+
+// max characters based on screen width
+const getMaxChars = () => {
+	// from either...
+	const width = window.innerWidth || document.body.clientWidth;
+	let maxChars;
+	if (width < 414) maxChars = 65;
+	if (width >= 414 && width < 1400) maxChars = 100;
+	if (width >= 1400) maxChars = 130;
+	return maxChars;
+};
+
+// helper function
+const requestData = async (searchString) => {
+	try {
+		const response = await fetch(searchString);
+		const data = await response.json();
+		return data;
+	} catch (err) {
+		console.error(err);
+	}
+};
+
+const processWikiResults = (results) => {
+	const resultArray = [];
+	// get the pages key from the API
+	Object.keys(results).forEach((key) => {
+		const id = key;
+		const title = results[key].title;
+		const text = results[key].extract;
+		const img = results[key].hasOwnProperty("thumbnail")
+			? results[key].thumbnail.source
+			: null;
+		// build object to pass in to result array
+		const item = {
+			id: id,
+			title: title,
+			img: img,
+			text: text,
+		};
+		// then push objects into the array...
+		resultArray.push(item);
+		// ends loop
+	});
+	return resultArray;
+};
+                    </code>
+                </pre>
+            </section>
+            <h4>searchBar.js</h4>
+            <section class="fun__code-block">
+                <pre class="language-js" rel="JS" >
+                    <code>
+export const setSearchFocus = () => {
+	document.getElementById("searchInput").focus();
+};
+
+export const showClearTextButton = () => {
+	const search = document.getElementById("searchInput");
+	const clear = document.getElementById("clearButton");
+	// if value length is greater than 0 statement is true
+	if (search.value.length) {
+		clear.classList.remove("visually-hidden");
+		clear.classList.add("button__search-clear");
+	} else {
+		clear.classList.add("visually-hidden");
+		clear.classList.remove("button__search-clear");
+	}
+};
+
+export const clearSearchText = (event) => {
+	event.preventDefault;
+	document.getElementById("searchInput").value = "";
+	const clear = document.getElementById("clearButton");
+	clear.classList.add("visually-hidden");
+	clear.classList.remove("button__search-clear");
+	setSearchFocus();
+};
+
+export const clearPushListener = (event) => {
+	if (event.key === "Enter" || event.key === " ") {
+		event.preventDefault();
+		document.getElementById("clearButton").click();
+	}
+};
+                    </code>
+                </pre>
+            </section>      
+            <h4>searchResults.js</h4>
+            <section class="fun__code-block">
+                <pre class="language-js" rel="JS" >
+    <code>
+        export const deleteSearchResults = () => {
+            const parentElement = document.getElementById("searchResults");
+            let child = parentElement.lastElementChild;
+            while (child) {
+                parentElement.removeChild(child);
+                child = parentElement.lastElementChild;
+            }
+        };
+
+        export const buildSearchResults = (resultArray) => {
+            resultArray.forEach((result) => {
+                const resultItem = createResultItem(result);
+                const resultContents = document.createElement("div");
+                resultContents.classList.add("result__contents");
+                if (result.img) {
+                    const resultImage = createResultImage(result);
+                    resultContents.append(resultImage);
+                }
+                const resultText = createResultText(result);
+                resultContents.append(resultText);
+                resultItem.append(resultContents);
+                const searchResults = document.getElementById("searchResults");
+                searchResults.append(resultItem);
+            });
+        };
+        // helper functions
+        const createResultItem = (result) => {
+            const resultItem = document.createElement("div");
+            resultItem.classList.add("result__item");
+            const resultTitle = document.createElement("div");
+            resultTitle.classList.add("result__title");
+            const link = document.createElement("a");
+            link.href = `https://en.wikipedia.org/?curid=${result.id}`;
+            link.textContent = result.title;
+            link.target = "_blank";
+            resultTitle.append(link);
+            resultItem.append(resultTitle);
+            return resultItem;
+        };
+        const createResultImage = (result) => {
+            const resultImage = document.createElement("div");
+            resultImage.classList.add("result__image");
+            const img = document.createElement("img");
+            img.src = result.img;
+            img.alt = result.title;
+            resultImage.append(img);
+            return resultImage;
+        };
+        const createResultText = (result) => {
+            const resultText = document.createElement("div");
+            resultText.classList.add("resultText");
+            const resultDescription = document.createElement("p");
+            resultDescription.classList.add("result__description");
+            resultDescription.textContent = result.text;
+            resultText.append(resultDescription);
+            return resultText;
+        };
+
+        export const clearStatsLine = () => {
+            document.getElementById("stats").textContent = "";
+        };
+        // receive number of results
+        export const setStatsLine = (numberOfResults) => {
+            const statLine = document.getElementById("stats");
+            // anything other than 0 is true
+            // gets resultArray.length passed in
+            if (numberOfResults) {
+                statLine.textContent = `Displaying ${numberOfResults} results.`;
+            } else {
+                statLine.textContent = `Sorry, no results`;
+            }
+        };
+                    </code>
+                </pre>
+            </section>                    
+        </aside>
+    </main>
+</body>
+</html>

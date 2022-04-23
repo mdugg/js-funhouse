@@ -1,0 +1,239 @@
+.fun__main {
+  color: #500f60;
+  background-color: #f0e7f2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.fun__main .project {
+  padding: 8rem;
+}
+.fun__main a {
+  color: #500f60;
+}
+
+.title {
+  font-family: "Overpass", sans-serif;
+  font-size: 6rem;
+  line-height: 1;
+  font-weight: 100;
+  margin: 0;
+}
+.title a {
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+}
+.title a:before {
+  transform: scaleX(0.2);
+  transform-origin: 0;
+  transition: 0.3s all ease-out;
+  background-color: #00f6ff;
+  height: 0.1rem;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  content: "";
+}
+.title a:hover:before {
+  transform: scaleX(1);
+}
+
+.subtitle {
+  font-family: inherit;
+  font-size: 3.2rem;
+  font-weight: 300;
+  margin: 0 0 2.4rem 0;
+}
+
+.sectiontitle {
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0 0 1.2rem 0;
+}
+
+p {
+  max-width: 60rem;
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+code {
+  display: inline-block;
+  padding: 0 0.4rem;
+  border-radius: 0.4rem;
+}
+
+.search__form {
+  margin-top: 6rem;
+}
+
+.form__group {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  border-style: none;
+  position: relative;
+}
+
+.search__input {
+  font-family: "Overpass", sans-serif;
+  font-weight: 300;
+  font-size: 2.4rem;
+  display: flex;
+  width: 100%;
+  padding: 1.6rem 4rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-style: none;
+  transition: all ease-out 0.3s;
+  position: relative;
+}
+.search__input:focus-within {
+  border-style: none;
+  box-shadow: 0 0 2rem 0 #00f6ff;
+}
+.search__input:focus-visible {
+  border-color: #fff;
+  outline-width: 0;
+}
+.search__input:focus {
+  border-style: none;
+}
+
+.search__input-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.button__search {
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-style: none;
+  transition: all ease-out 0.3s;
+}
+.button__search:hover {
+  cursor: pointer;
+  background-color: #00f6ff;
+}
+.button__search:hover .icon__search {
+  fill: #fff;
+}
+
+.button__search-clear {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-style: none;
+  fill: #00f6ff;
+}
+.button__search-clear:hover {
+  cursor: pointer;
+}
+.button__search-clear:hover .icon__search-clear {
+  fill: #00f6ff;
+  opacity: 1;
+}
+
+.icon__search {
+  fill: #00f6ff;
+  height: 3.2rem;
+  transition: all ease-out 0.3s;
+}
+
+.icon__search-clear {
+  fill: #fff;
+  opacity: 0.5;
+  height: 1.6rem;
+  transition: all ease-out 0.3s;
+}
+
+.search__results {
+  padding: 4rem 0;
+}
+
+.result__card {
+  display: flex;
+  flex-direction: column;
+  border: 0.8rem solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.8rem;
+  padding: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.result__title {
+  margin-top: 0;
+}
+
+.result__title a {
+  font-size: 1.6rem;
+  font-weight: 500;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+}
+.result__title a:before {
+  transform: scaleX(0.2);
+  transform-origin: 0;
+  transition: 0.3s all ease-out;
+  background-color: #00f6ff;
+  height: 0.1rem;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  content: "";
+}
+.result__title a:hover:before {
+  transform: scaleX(1);
+}
+
+.result__content {
+  display: flex;
+  flex-direction: row;
+}
+
+.result__image {
+  padding-right: 1.6rem;
+}
+
+.result__description {
+  margin: 0;
+}
+
+.visually-hidden,
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (max-width: 1400px) {
+  .fun__main {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 720px) {
+  .fun__main .project {
+    padding: 4rem;
+  }
+}
+
+/*# sourceMappingURL=search-wikipedia.css.map */
