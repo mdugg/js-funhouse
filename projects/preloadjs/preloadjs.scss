@@ -1,0 +1,180 @@
+// SCSS variables
+$font: 'Arima', cursive;
+$color-main: #259c83;
+$color-tint: #c9dad7;
+$color-text: #353535;
+
+
+// template over-rides
+.fun__grid {
+    transition: all .3s ease-out;
+}
+.fun__main {
+    color: $color-text;
+    // background-color: $color-main;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .project {
+        padding: 8rem;
+    }
+
+    a {
+        color: $color-main;
+    }
+}
+.fun__code-block {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    min-height: 100vh;
+    width: 100vw;
+    transition: all .3s ease-in-out;
+
+    pre {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+        overflow-y: scroll;
+    }
+}
+.fun__code-block--hidden {
+    transform: scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+}
+.fun__code-block--btn-group {
+    display: flex;
+    justify-content: center;
+    padding: 2.4rem;
+}
+.fun__code-block--btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+    height: 4rem;
+    padding: 0 2.4rem;
+    border: 1px dotted $color-main;
+    background-color: transparent;
+    transition: all .3s ease-out;
+
+    .icon-close {
+        height: 1.6rem;
+        margin-left: .6rem;
+        fill: #fff;
+        transition: all .3s ease-out;
+    }
+
+    &:hover {
+        color: $color-main;
+        cursor: pointer;
+        border-style: solid;
+
+        .icon-close {
+            fill: $color-main;
+        }
+    }
+}
+
+// project
+.loading {
+    background-color: $color-tint;
+}
+.project {
+    .content {
+        margin-bottom: 4rem;
+    }
+    .title {
+        color: $color-main;
+        font-family: $font;
+        font-size:4rem;
+        line-height: 1.3;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+    }
+    .links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        li {
+            margin: 2.4rem .8rem;
+        }
+    }
+    .link {
+        color: $color-main;
+        font-size: 1.6rem;
+        line-height: 1;
+        padding: .8rem;
+        background-color: transparent;
+        text-decoration: none;
+        border-style: none;
+        display: block;
+        position: relative;
+
+        &:after {
+            position: absolute;
+            left:0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #eee;
+            transition: all .3s ease-out;
+            transform-origin: top;
+            content:'';
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            &:after {
+                transform: scaleY(4);
+            }
+        }
+    }
+}
+// components
+.progress-bar {
+    height: 1rem;
+    border-radius: .5rem;
+    opacity: 1;
+    background-color: $color-main;
+    transition: width .1s ease;
+}
+.image-gallery {
+    opacity:0;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 40%);
+    grid-gap: 2rem;
+    justify-content: center;
+    align-content: center;
+    transform: scale(.8);
+}
+.fadeOut {
+    opacity: 0 !important;
+    transition: opacity 2s !important;
+}
+.fadeIn {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    transition: all 1s 1.5s;
+}
+
+@media (max-width: 720px) { 
+    .fun__main {
+        .project {
+            padding: 4rem;
+        }
+    }
+    #gallery {
+        grid-template-columns: repeat(2, 50%);
+    }
+}

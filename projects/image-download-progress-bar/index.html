@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDN -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@100&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link href="../../global/styles/css/global.css" rel="stylesheet">       
+    <link href="progress-bar.css" rel="stylesheet">   
+    <!-- JS -->
+    <script src="../../global/GlobalHeader.js" type="module"></script>
+    <script src="image-progress.js" defer></script> 
+    <title>
+        Progress bar for downloading an image || Martin Duggan, Product Designer
+    </title>
+</head>
+<body class="fun__grid">
+    <header class="fun__header">
+        <fun-nav></fun-nav>
+    </header>
+    <main class="fun__main" role="main">
+        <section class="project">
+            <article class="content">
+                <h1 class="title">Progress bar for downloading an image</h1>
+\                <progress id="imageProgress" value="0" max="100"></progress>
+                <figure>
+                    <!-- <img src="https://chattanooga-mountain-break.s3.amazonaws.com/IMG_4928.JPG" > -->
+                    <img id="myImage" src="" alt="Green foliage and trees on a hike in the North Georgia Appalachian" />
+                </figure>
+            </article>
+        </section>
+
+    </main>
+</body>
+</html>

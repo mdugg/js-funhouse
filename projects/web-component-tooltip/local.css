@@ -1,99 +1,132 @@
 .fun__main {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto auto;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
 }
 
 .grid__imagery {
-  grid-column-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
   grid-column-end: 9;
-  grid-row-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 6vh);
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  -ms-grid-rows: (6vh)[12];
+      grid-template-rows: repeat(12, 6vh);
   grid-gap: 0px;
   background-color: #14193a;
   padding: 24px;
 }
+
 .grid__imagery fun-tooltip {
   position: absolute;
 }
+
 .grid__imagery figure {
   overflow: hidden;
   position: relative;
 }
+
 .grid__imagery .chicago-L {
-  grid-column-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
   grid-column-end: 8;
-  grid-row-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
   grid-row-end: 7;
 }
+
 .grid__imagery .chicago-nbc {
-  grid-column-start: 8;
+  -ms-grid-column: 8;
+      grid-column-start: 8;
   grid-column-end: 13;
-  grid-row-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
   grid-row-end: 4;
 }
+
 .grid__imagery .chicago-bridges {
-  grid-column-start: 1;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
   grid-column-end: 7;
-  grid-row-start: 7;
+  -ms-grid-row: 7;
+      grid-row-start: 7;
   grid-row-end: 13;
 }
+
 .grid__imagery .chicago-towers {
-  grid-area: 4/7/13/13;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 9;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 6;
+  grid-area: 4 / 7 / 13 / 13;
 }
 
 .content__block {
-  grid-column-start: 2;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
   grid-column-end: 7;
-  grid-row-start: 2;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
   font-size: 1.6rem;
   margin-bottom: 8rem;
 }
+
 .content__block .title {
   font-size: 2.8rem;
   font-weight: 300;
 }
 
 .fun__code-block {
-  grid-column-start: 9;
+  -ms-grid-column: 9;
+      grid-column-start: 9;
   grid-column-end: 13;
-  grid-row-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
   grid-row-end: 3;
 }
 
 @media (max-width: 1600px) {
   .fun__main {
-    grid-template-rows: auto auto auto;
+    -ms-grid-rows: auto auto auto;
+        grid-template-rows: auto auto auto;
   }
-
   .grid__imagery {
     grid-column-end: 13;
   }
-
   .content__block {
-    grid-column-start: 1;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
     grid-column-end: 6;
-    grid-row-start: 2;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
   }
-
   .fun__code-block {
-    grid-column-start: 7;
-    grid-row-start: 2;
+    -ms-grid-column: 7;
+        grid-column-start: 7;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
   }
 }
+
 @media (max-width: 1200px) {
   .content__block {
-    grid-column-start: 2;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
     grid-column-end: 12;
   }
-
   .fun__code-block {
-    grid-column-start: 1;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
     grid-column-end: 13;
-    grid-row-start: 3;
+    -ms-grid-row: 3;
+        grid-row-start: 3;
   }
 }
-
 /*# sourceMappingURL=local.css.map */

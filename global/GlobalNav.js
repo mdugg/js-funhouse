@@ -1,8 +1,24 @@
 const globalNav = [
 	{
+		linkName: "Preload Imagery With Progress Bars Using PreloadJS",
+		linkURL: "/js-funhouse/projects/preloadjs/index.html",
+		desc: "Use classes from the PreloadJS library to preload imagery and display progress bars",
+		month: "06",
+		year: "2022",
+		tags: ["PreloadJS"],
+	},
+	// {
+	// 	linkName: "Progress bar for downloading an image",
+	// 	linkURL: "/js-funhouse/projects/image-download-progress-bar/index.html",
+	// 	desc: "Using XHR request to calculate the download state of an image and map this to a progress bar",
+	// 	month: "06",
+	// 	year: "2022",
+	// 	tags: ["xhr", "XMLHttpRequest", "Blob"],
+	// },
+	{
 		linkName: "Searching the Wikipedia API",
 		linkURL: "/js-funhouse/projects/search-wikipedia-api/index.html",
-		desc: "Searching the Wikipedia API",
+		desc: "Using the fetch API to search the Wikipedia API and return endpoints into a card design",
 		month: "04",
 		year: "2022",
 		tags: ["API", "fetch()", "search", "forms"],

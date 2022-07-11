@@ -1,6 +1,6 @@
 :root {
-  --font: "EB Garamond", serif;
-  --fontSecondary: "Poppins", sans-serif;
+  --font: 'EB Garamond', serif;
+  --fontSecondary: 'Poppins', sans-serif;
   --colorMain: #1622bf;
   --colorBack: #e8ebf3;
   --colorTint: #b6bbfd;
@@ -9,11 +9,21 @@
 .fun__main {
   color: var(--colorMain);
   background-color: var(--colorBack);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
+
 .fun__main .project {
   padding: 8rem;
 }
@@ -21,7 +31,7 @@
 .title {
   font-family: var(--font);
   font-size: 12rem;
-  line-height: 0.8;
+  line-height: .8;
   font-weight: 300;
   margin: 0;
 }
@@ -48,65 +58,106 @@ p {
 
 code {
   display: inline-block;
-  padding: 0 0.4rem;
+  padding: 0 .4rem;
   background-color: var(--colorTint);
-  border-radius: 0.4rem;
+  border-radius: .4rem;
 }
 
 .product-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
   max-width: 40rem;
   padding: 0;
   margin: 1.6rem 0;
   border: 1px dashed var(--colorMain);
-  border-radius: 0.8rem;
+  border-radius: .8rem;
   opacity: 0;
-  transform: translateX(4rem);
-  transition: all 0.3s ease-out;
+  -webkit-transform: translateX(4rem);
+          transform: translateX(4rem);
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
 }
+
 .card .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   padding: 0;
   margin: 0;
 }
+
 .card .image {
   width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0;
   margin: 0;
   border-right: 1px dashed var(--colorMain);
 }
+
 .card .text {
   width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 4rem;
 }
+
 .card .title {
   font-family: var(--fontSecondary);
   font-weight: 500;
   font-size: 1.8rem;
 }
+
 .card .icon {
   height: 3.2rem;
   fill: var(--colorMain);
 }
+
 .card.show {
   opacity: 1;
-  transform: translateX(0);
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
-
 /*# sourceMappingURL=intersection-observer.css.map */

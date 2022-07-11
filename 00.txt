@@ -1,4 +1,9 @@
 Next:
+- PreloadJS - Preloading Content with Progress Bars https://www.youtube.com/watch?v=epRI930heds
+- Sending JavaScript Http Requests with XMLHttpRequest https://www.youtube.com/watch?v=4K33w-0-p2c
+- How to Show Image Download Progress Bar Using JavaScript
+ https://www.youtube.com/watch?v=cjmUVvux7hI
+ https://www.youtube.com/watch?v=-EaDl52zBRI - with percentage and time
 - image download states
 - color palette separate project
 - video api - stitch together videos / custom controls / access data, print to HTML
@@ -12,8 +17,8 @@ Next:
 cd global/styles/
 sass --watch scss:css
 
-cd projects/search-wikipedia-api
-sass --watch search-wikipedia.scss:search-wikipedia.css
+cd projects/image-download-progress-bar
+sass --watch progress-bar.scss:progress-bar.css
 
 ===========================
 

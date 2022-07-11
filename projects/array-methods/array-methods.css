@@ -1,14 +1,17 @@
 :root {
-  --fontMono: "PT Mono", monospace;
+  --fontMono: 'PT Mono', monospace;
   --colorBack: #dbe4f5;
   --colorHighlight: #00ff95;
 }
 
 .fun__main {
   background-color: var(--colorBack);
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  column-gap: 2.4rem;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  -webkit-column-gap: 2.4rem;
+          column-gap: 2.4rem;
   row-gap: 4rem;
   padding: 4rem;
 }
@@ -17,17 +20,23 @@
   font-family: var(--fontMono);
   font-size: 6rem;
   font-weight: 300;
-  grid-column: 1/span 12;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 12;
+  grid-column: 1 / span 12;
   margin: 0;
 }
 
 .card__method {
   font-family: var(--fontMono);
-  grid-column: 1/span 6;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-column: 1 / span 6;
 }
 
 .fun__code-block {
-  grid-column: 7/span 6;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 6;
+  grid-column: 7 / span 6;
 }
 
 .subtitle {
@@ -52,37 +61,47 @@ p {
 
 code {
   background-color: var(--colorHighlight);
-  padding: 0 0.4rem;
+  padding: 0 .4rem;
 }
 
 .filter__lists {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: minmax(200px, 30%) minmax(200px, 30%);
-  column-gap: 4rem;
+  -ms-grid-columns: minmax(200px, 30%) minmax(200px, 30%);
+      grid-template-columns: minmax(200px, 30%) minmax(200px, 30%);
+  -webkit-column-gap: 4rem;
+          column-gap: 4rem;
 }
+
 .filter__lists dl {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: auto auto;
-  row-gap: 0.8rem;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  row-gap: .8rem;
   font-size: 1.6rem;
 }
+
 .filter__lists dl dt, .filter__lists dl dd {
   border-bottom: 1px dashed #fff;
 }
 
 @media (max-width: 1200px) {
   .card__method {
-    grid-column: 1/span 12;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 12;
+    grid-column: 1 / span 12;
   }
-
   .fun__code-block {
-    grid-column: 1/span 12;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 12;
+    grid-column: 1 / span 12;
   }
 }
+
 @media (max-width: 720px) {
   .title {
     font-size: 4rem;
   }
 }
-
 /*# sourceMappingURL=array-methods.css.map */

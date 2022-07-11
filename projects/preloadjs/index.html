@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/a11y-dark.css">
+    <link href="https://highlightjs.org/static/demo/styles/a11y-dark.css">
+    <link href="../../global/styles/css/global.css" rel="stylesheet"> 
+    <link href="../../global/styles/highlight-js-theme.css" rel="stylesheet">
+    <link href="preloadjs.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="https://code.createjs.com/1.0.0/preloadjs.min.js" defer></script> 
+    <script src="../../global/GlobalHeader.js" type="module"></script>
+    <script src="../../global/js/code-modal.js" defer></script> 
+    <script src="preload-images.js" defer></script> 
+    <title>
+        Preload Images With Progress Bars || Martin Duggan, Product Designer
+    </title>
+</head>
+<body class="fun__grid loading">
+    <header class="fun__header">
+        <fun-nav></fun-nav>
+    </header>
+    <main class="fun__main" role="main">
+        <section class="project">
+            <article class="content">
+                <h1 class="title">Preload Images With Progress Bars Using PreloadJS</h1>
+                <ul class="links">
+                    <li>
+                        <button class="link" data-btn="toggle">
+                            JavaScript
+                        </button>
+                    </li>
+                    <li>
+                        <a 
+                            class="link"
+                            href="https://createjs.com/docs/preloadjs/modules/PreloadJS.html" 
+                            target="_blank">
+                                PreloadJS
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            class="link"
+                            href="https://www.youtube.com/watch?v=epRI930heds"
+                            target="_blank">
+                                Tutorial
+                        </a>
+                    </li>
+                </ul>
+            </article>
+            <progress id="progress" class="progress-bar"></progress>
+            <figure id="gallery" class="image-gallery">
+                <!-- <img 
+                    src="" 
+                    alt="Green foliage and trees on a hike in the North Georgia Appalachian" /> -->
+            </figure>
+        </section>
+        <aside class="fun__code-block fun__code-block--hidden">
+            <div class="fun__code-block--btn-group">
+                <button class="fun__code-block--btn" data-btn="toggle">
+                    Close
+                    <svg
+                        class="icon-close" 
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M312.1 375c9.369 9.369 9.369 24.57 0 33.94s-24.57 9.369-33.94 0L160 289.9l-119 119c-9.369 9.369-24.57 9.369-33.94 0s-9.369-24.57 0-33.94L126.1 256L7.027 136.1c-9.369-9.369-9.369-24.57 0-33.94s24.57-9.369 33.94 0L160 222.1l119-119c9.369-9.369 24.57-9.369 33.94 0s9.369 24.57 0 33.94L193.9 256L312.1 375z" />
+                    </svg>
+                </button>
+            </div>
+            <pre>
+                <code>
+let progress = document.getElementById("progress");
+let gallery = document.getElementById("gallery");
+
+// https://createjs.com/docs/preloadjs/classes/LoadQueue.html
+// LoadQueue instance set to true will preload but not append automatically
+var queue = new createjs.LoadQueue(false);
+// console.log(queue);
+// progress bar
+// progress event is called each time an image is loaded
+queue.on("progress", (event) => {
+	// log 'event' to see images load in sequentially
+	console.log(event);
+	let progress = Math.floor(event.progress * 100);
+	this.progress.style.width = progress + "%";
+	if (progress == 100) {
+		// when images are loaded into cache
+		console.log("all done");
+		document.querySelector("body").style.background = "white";
+	}
+});
+// create image gallery
+queue.on("complete", (event) => {
+	gallery.classList.add("fadeIn");
+	progress.classList.add("fadeOut");
+});
+queue.on("fileload", handleFileComplete);
+queue.loadFile(
+	"https://chattanooga-mountain-break.s3.amazonaws.com/P1030953.JPG"
+);
+queue.loadFile(
+	"https://chattanooga-mountain-break.s3.amazonaws.com/P1030941.JPG"
+);
+queue.loadFile(
+	"https://chattanooga-mountain-break.s3.amazonaws.com/P1030931.JPG"
+);
+queue.loadFile(
+	"https://chattanooga-mountain-break.s3.amazonaws.com/P1030894.JPG"
+);
+// called each time a file is loaded
+function handleFileComplete(event) {
+	// reference item passed in to load queue
+	let item = event.item;
+	let type = item.type;
+	if (type == createjs.Types.IMAGE) {
+		// add in img tag to show uploaded file
+		gallery.appendChild(event.result);
+	}
+}             
+                </code>
+            </pre>
+            <div class="fun__code-block--btn-group">
+                <button class="fun__code-block--btn" data-btn="toggle">
+                    Close
+                    <svg
+                        class="icon-close" 
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M312.1 375c9.369 9.369 9.369 24.57 0 33.94s-24.57 9.369-33.94 0L160 289.9l-119 119c-9.369 9.369-24.57 9.369-33.94 0s-9.369-24.57 0-33.94L126.1 256L7.027 136.1c-9.369-9.369-9.369-24.57 0-33.94s24.57-9.369 33.94 0L160 222.1l119-119c9.369-9.369 24.57-9.369 33.94 0s9.369 24.57 0 33.94L193.9 256L312.1 375z" />
+                    </svg>
+                </button>
+            </div>
+        </aside>
+    </main>
+</body>
+</html>
