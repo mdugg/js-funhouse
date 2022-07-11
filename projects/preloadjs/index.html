@@ -57,9 +57,6 @@
             </article>
             <progress id="progress" class="progress-bar"></progress>
             <figure id="gallery" class="image-gallery">
-                <!-- <img 
-                    src="" 
-                    alt="Green foliage and trees on a hike in the North Georgia Appalachian" /> -->
             </figure>
         </section>
         <aside class="fun__code-block fun__code-block--hidden">
@@ -76,6 +73,7 @@
             </div>
             <pre>
                 <code>
+let view = document.querySelector("body");
 let progress = document.getElementById("progress");
 let gallery = document.getElementById("gallery");
 
@@ -92,8 +90,8 @@ queue.on("progress", (event) => {
 	this.progress.style.width = progress + "%";
 	if (progress == 100) {
 		// when images are loaded into cache
-		console.log("all done");
-		document.querySelector("body").style.background = "white";
+		// console.log("all done");
+		view.classList.remove("loading");
 	}
 });
 // create image gallery
@@ -123,7 +121,7 @@ function handleFileComplete(event) {
 		// add in img tag to show uploaded file
 		gallery.appendChild(event.result);
 	}
-}             
+}          
                 </code>
             </pre>
             <div class="fun__code-block--btn-group">

@@ -24,7 +24,7 @@ sass --watch progress-bar.scss:progress-bar.css
 
 git status
 git add .
-git commit -m "search wikipedia and hide the project tags for now"
+git commit -m "new project - preloadjs load images"
 git push
 
 --
