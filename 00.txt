@@ -23,7 +23,7 @@ sass --watch progress-bar.scss:progress-bar.css
 
 git status
 git add .
-git commit -m "Web Component using Lit framework - basic counter"
+git commit -m "edits to projects nav"
 git push
 
 --
