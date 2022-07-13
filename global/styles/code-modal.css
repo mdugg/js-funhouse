@@ -1,0 +1,85 @@
+.fun__code-block {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.fun__code-block pre {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.6rem;
+  overflow-y: scroll;
+}
+
+.fun__code-block--hidden {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fun__code-block--btn-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2.4rem;
+}
+
+.fun__code-block--btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  height: 4rem;
+  padding: 0 2.4rem;
+  border: 1px dotted #259c83;
+  background-color: transparent;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+.fun__code-block--btn .icon-close {
+  height: 1.6rem;
+  margin-left: .6rem;
+  fill: #fff;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+.fun__code-block--btn:hover {
+  color: #259c83;
+  cursor: pointer;
+  border-style: solid;
+}
+
+.fun__code-block--btn:hover .icon-close {
+  fill: #259c83;
+}
+/*# sourceMappingURL=code-modal.css.map */

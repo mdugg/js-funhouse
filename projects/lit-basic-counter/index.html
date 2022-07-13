@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="../../global/styles/css/global.css" rel="stylesheet"> 
+    <link href="../../global/styles/code-modal.css" rel="stylesheet">
+    <link href="../../global/styles/highlight-js-theme.css" rel="stylesheet">
+    <link href="lit-counter.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <!-- 
+        Lit is imported directly into JS module
+        <script src="https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js" defer></script>  
+    -->
+    <script src="../../global/GlobalHeader.js" type="module"></script>
+    <script src="../../global/js/code-modal.js" defer></script> 
+    <script src="lit-counter.js" type="module"></script> 
+    <title>
+        Basic Counter using Lit and Web Components || Martin Duggan, Product Designer
+    </title>
+</head>
+<body class="fun__grid">
+    <header class="fun__header">
+        <fun-nav></fun-nav>
+    </header>
+    <main class="fun__main" role="main">
+        <section class="project">
+            <article class="content">
+                <h1 class="title">Basic Counter using Lit Framework for Web Components</h1>
+                <ul class="links">
+                    <li>
+                        <button class="link" data-btn="toggle">
+                            JavaScript
+                        </button>
+                    </li>
+                    <li>
+                        <a 
+                            class="link"
+                            href="https://lit.dev/docs/" 
+                            target="_blank">
+                                Lit.dev
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            class="link"
+                            href="https://frontendmasters.com/courses/web-components/"
+                            target="_blank">
+                                Course
+                        </a>
+                    </li>
+                </ul>
+                <div class="component">
+                    <!-- <my-counter count="5">Light DOM gets ignored</my-counter> -->
+                    <my-counter></my-counter>
+                </div>
+            </article>
+        </section>
+        <aside class="fun__code-block fun__code-block--hidden">
+            <div class="fun__code-block--btn-group">
+                <button class="fun__code-block--btn" data-btn="toggle">
+                    Close
+                    <svg
+                        class="icon-close" 
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M312.1 375c9.369 9.369 9.369 24.57 0 33.94s-24.57 9.369-33.94 0L160 289.9l-119 119c-9.369 9.369-24.57 9.369-33.94 0s-9.369-24.57 0-33.94L126.1 256L7.027 136.1c-9.369-9.369-9.369-24.57 0-33.94s24.57-9.369 33.94 0L160 222.1l119-119c9.369-9.369 24.57-9.369 33.94 0s9.369 24.57 0 33.94L193.9 256L312.1 375z" />
+                    </svg>
+                </button>
+            </div>
+            <pre>
+                <code>
+import { LitElement, html, css } from "https://cdn.skypack.dev/lit";
+// console.log(LitElement);
+export default class MyCounter extends LitElement {
+	// what properties would our counter need ?
+	// static properties = ['count']
+	static properties = {
+		// keep track of the count
+		// count is an object
+		// reactive property, with type
+		// count: { type:Number, state:true }
+		// for Lit, state is kept local when false - not accepting in from attributes
+		// 	props and attributes are different
+		count: { state: false },
+	};
+	/*
+	vanilla JS version:
+	static get observedAttributes() {
+		return ['count']
+	}
+	*/
+	static styles = [
+		css`
+			:host {}
+			.btn {}
+			.number {}
+		`,
+	];
+	// create the class
+	constructor() {
+		super();
+		this.count = 0;
+	}
+	// increment
+	_plus() {
+		this.count++;
+	}
+	//decrement
+	_minus() {
+		this.count--;
+	}
+	// Lit render function
+	// Lit uses custom directives
+	// Angular Directives & Decorators
+	// https://medium.com/swlh/angular-directives-decorators-23faf07b0bf9
+	render() {
+		return html`
+			-
+			${this.count}
+			+
+		`;
+	}
+}
+
+customElements.define("my-counter", MyCounter);        
+                </code>
+            </pre>
+            <div class="fun__code-block--btn-group">
+                <button class="fun__code-block--btn" data-btn="toggle">
+                    Close
+                    <svg
+                        class="icon-close" 
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M312.1 375c9.369 9.369 9.369 24.57 0 33.94s-24.57 9.369-33.94 0L160 289.9l-119 119c-9.369 9.369-24.57 9.369-33.94 0s-9.369-24.57 0-33.94L126.1 256L7.027 136.1c-9.369-9.369-9.369-24.57 0-33.94s24.57-9.369 33.94 0L160 222.1l119-119c9.369-9.369 24.57-9.369 33.94 0s9.369 24.57 0 33.94L193.9 256L312.1 375z" />
+                    </svg>
+                </button>
+            </div>
+        </aside>
+    </main>
+</body>
+</html>

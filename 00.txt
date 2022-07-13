@@ -1,5 +1,4 @@
 Next:
-- PreloadJS - Preloading Content with Progress Bars https://www.youtube.com/watch?v=epRI930heds
 - Sending JavaScript Http Requests with XMLHttpRequest https://www.youtube.com/watch?v=4K33w-0-p2c
 - How to Show Image Download Progress Bar Using JavaScript
  https://www.youtube.com/watch?v=cjmUVvux7hI
@@ -24,7 +23,7 @@ sass --watch progress-bar.scss:progress-bar.css
 
 git status
 git add .
-git commit -m "new project - preloadjs load images"
+git commit -m "Web Component using Lit framework - basic counter"
 git push
 
 --

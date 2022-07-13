@@ -1,0 +1,105 @@
+// SCSS variables
+$font: 'Quicksand', sans-serif;
+$color-main: #15cbff;
+$color-text: #353535;
+
+// template over-rides
+.fun__grid {
+    transition: all .3s ease-out;
+}
+.fun__main {
+    color: $color-text;
+    // background-color: $color-main;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .project {
+        padding: 8rem;
+    }
+    a {
+        color: $color-main;
+    }
+}
+
+// project
+.project {
+    width: 100%;
+    .content {
+        margin-bottom: 4rem;
+    }
+    .title {
+        color: $color-main;
+        font-family: $font;
+        font-size:3.2rem;
+        line-height: 1.3;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+    }
+    .links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        li {
+            margin: 2.4rem .8rem;
+        }
+    }
+    .link {
+        color: $color-main;
+        font-size: 1.6rem;
+        line-height: 1;
+        padding: .8rem;
+        background-color: transparent;
+        text-decoration: none;
+        border-style: none;
+        display: block;
+        position: relative;
+
+        &:after {
+            position: absolute;
+            left:0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #eee;
+            transition: all .3s ease-out;
+            transform-origin: top;
+            content:'';
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            &:after {
+                transform: scaleY(4);
+            }
+        }
+    }
+}
+// components
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+.component {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid tint($color-main, 80%);
+    background-color: tint($color-main, 90%);
+    border-radius: 1rem;
+    padding: 4rem;
+}
+
+@media (max-width: 720px) { 
+    .fun__main {
+        .project {
+            padding: 4rem;
+        }
+    }
+    #gallery {
+        grid-template-columns: repeat(2, 50%);
+    }
+}

@@ -1,5 +1,13 @@
 const globalNav = [
 	{
+		linkName: "Basic Counter using Lit Framework for Web Components",
+		linkURL: "/js-funhouse/projects/lit-basic-counter/index.html",
+		desc: "Using the Lit framework to create a basic counter",
+		month: "06",
+		year: "2022",
+		tags: ["Lit", "Web Components"],
+	},
+	{
 		linkName: "Preload Imagery With Progress Bars Using PreloadJS",
 		linkURL: "/js-funhouse/projects/preloadjs/index.html",
 		desc: "Use classes from the PreloadJS library to preload imagery and display progress bars",

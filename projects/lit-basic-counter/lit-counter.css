@@ -1,0 +1,127 @@
+.fun__grid {
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+.fun__main {
+  color: #353535;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.fun__main .project {
+  padding: 8rem;
+}
+
+.fun__main a {
+  color: #15cbff;
+}
+
+.project {
+  width: 100%;
+}
+
+.project .content {
+  margin-bottom: 4rem;
+}
+
+.project .title {
+  color: #15cbff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 3.2rem;
+  line-height: 1.3;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+
+.project .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.project .links li {
+  margin: 2.4rem .8rem;
+}
+
+.project .link {
+  color: #15cbff;
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: .8rem;
+  background-color: transparent;
+  text-decoration: none;
+  border-style: none;
+  display: block;
+  position: relative;
+}
+
+.project .link:after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #eee;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  content: '';
+}
+
+.project .link:hover {
+  cursor: pointer;
+}
+
+.project .link:hover:after {
+  -webkit-transform: scaleY(4);
+          transform: scaleY(4);
+}
+
+.component {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid #d0f5ff;
+  background-color: #e8faff;
+  border-radius: 1rem;
+  padding: 4rem;
+}
+
+@media (max-width: 720px) {
+  .fun__main .project {
+    padding: 4rem;
+  }
+  #gallery {
+    -ms-grid-columns: (50%)[2];
+        grid-template-columns: repeat(2, 50%);
+  }
+}
+/*# sourceMappingURL=lit-counter.css.map */

@@ -1,0 +1,61 @@
+$color-main: #259c83;
+$color-tint: #c9dad7;
+$color-text: #353535;
+
+.fun__code-block {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+    transition: all .3s ease-in-out;
+
+    pre {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+        overflow-y: scroll;
+    }
+}
+.fun__code-block--hidden {
+    transform: scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+}
+.fun__code-block--btn-group {
+    display: flex;
+    justify-content: center;
+    padding: 2.4rem;
+}
+.fun__code-block--btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+    height: 4rem;
+    padding: 0 2.4rem;
+    border: 1px dotted $color-main;
+    background-color: transparent;
+    transition: all .3s ease-out;
+
+    .icon-close {
+        height: 1.6rem;
+        margin-left: .6rem;
+        fill: #fff;
+        transition: all .3s ease-out;
+    }
+
+    &:hover {
+        color: $color-main;
+        cursor: pointer;
+        border-style: solid;
+
+        .icon-close {
+            fill: $color-main;
+        }
+    }
+}
