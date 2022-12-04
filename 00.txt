@@ -1,5 +1,8 @@
 Next:
-- Sending JavaScript Http Requests with XMLHttpRequest https://www.youtube.com/watch?v=4K33w-0-p2c
+- design tokens
+- JS blobs
+- shadow dom event propagation / SPA
+    https://www.carlrippon.com/creating-a-modal-dialog-web-component/
 - How to Show Image Download Progress Bar Using JavaScript
  https://www.youtube.com/watch?v=cjmUVvux7hI
  https://www.youtube.com/watch?v=-EaDl52zBRI - with percentage and time
