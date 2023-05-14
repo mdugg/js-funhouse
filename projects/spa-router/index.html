@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+    <script src="router.js" defer></script>
+    <title>Vanilla JS Single Page Application Router</title>
+</head>
+<body>
+    <div id="root">
+        <header>
+            <h1 class="text-3xl font-bold underline text-test">
+                Hello world!
+            </h1>
+            <nav id="menu">
+                <ul class="">
+                    <li>
+                        <a href="/projects/spa-router/overview" class="menu-item" onclick="route()">
+                            Overview
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/projects/spa-router/customers" class="menu-item" onclick="route()">
+                            Customers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/projects/spa-router/orders" class="menu-item" onclick="route()">
+                            Orders
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main id="main">
+            <h2>App landing</h2>
+        </main>
+    </div>
+</body>
+</html>

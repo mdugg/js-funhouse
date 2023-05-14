@@ -1,5 +1,13 @@
 const globalNav = [
 	{
+		linkName: "SPA Router",
+		linkURL: "/js-funhouse/projects/spa-router/index.html",
+		desc: "Vanilla JS single page application router",
+		month: "12",
+		year: "2022",
+		tags: ["SPA"],
+	},
+	{
 		linkName: "Basic Counter using Lit Framework for Web Components",
 		linkURL: "/js-funhouse/projects/lit-basic-counter/index.html",
 		desc: "Using the Lit framework to create a basic counter",
@@ -15,14 +23,6 @@ const globalNav = [
 		year: "2022",
 		tags: ["PreloadJS"],
 	},
-	// {
-	// 	linkName: "Progress bar for downloading an image",
-	// 	linkURL: "/js-funhouse/projects/image-download-progress-bar/index.html",
-	// 	desc: "Using XHR request to calculate the download state of an image and map this to a progress bar",
-	// 	month: "06",
-	// 	year: "2022",
-	// 	tags: ["xhr", "XMLHttpRequest", "Blob"],
-	// },
 	{
 		linkName: "Searching the Wikipedia API",
 		linkURL: "/js-funhouse/projects/search-wikipedia-api/index.html",
