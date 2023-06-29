@@ -8,7 +8,7 @@ class GlobalHeader extends HTMLElement {
 		this.attachShadow({ mode: "open" });
 		this.shadowRoot.innerHTML = `
     		<style>
-				@import "./global/components/GlobalHeader.css";
+				@import "https://mdugg.github.io/js-funhouse/global/components/GlobalHeader.css";
 			</style>
 			<div class="fun-topbar">
 				<h1 class="visually-hidden">JS-Funhouse</h1>
@@ -19,6 +19,11 @@ class GlobalHeader extends HTMLElement {
 						<path class="fun-topbar__brand--type" fill-rule="nonzero" d="M15.6777344,56 L15.6777344,42.6845703 L15.7363281,42.6845703 L20.2041016,52.9384766 L22.8994141,52.9384766 L27.3671875,42.6845703 L27.4404297,42.6845703 L27.4404297,56 L30.6777344,56 L30.6777344,34.6425781 L27.6162109,34.6425781 L21.6103516,48.5585938 L15.4873047,34.6425781 L12.4404297,34.6425781 L12.4404297,56 L15.6777344,56 Z M42.4257812,56 C44.0273438,56 45.3798828,55.6484375 46.4833984,54.9453125 C47.5966797,54.2910156 48.4658203,53.4609375 49.0908203,52.4550781 C49.3251953,52.0742188 49.5253906,51.7080078 49.6914062,51.3564453 C49.8476562,50.9951172 49.9648438,50.5849609 50.0429688,50.1259766 C50.1992188,49.2711972 50.2819393,47.8022309 50.2911305,45.7190778 L50.2919922,45.3212891 C50.2919922,43.1630859 50.2382812,41.6445312 50.1308594,40.765625 C49.9941406,39.8867188 49.6669922,39.046875 49.1494141,38.2460938 C47.7041016,35.8632812 45.5361328,34.6621094 42.6455078,34.6425781 L35.1748047,34.6425781 L35.1748047,56 L42.4257812,56 Z M42.2792969,52.9384766 L38.4121094,52.9384766 L38.4121094,37.7041016 L42.2792969,37.7041016 C43.9199219,37.6650391 45.1894531,38.265625 46.0878906,39.5058594 C46.5273438,40.0039062 46.8056641,40.6533203 46.9228516,41.4541016 C47.0048828,42.2014974 47.0486328,43.4082682 47.0541016,45.0744141 L47.0546875,45.4384766 C47.0546875,47.3427734 47.0107422,48.6416016 46.9228516,49.3349609 C46.8251953,50.0380859 46.5957031,50.6191406 46.234375,51.078125 C45.4140625,52.3183594 44.0957031,52.9384766 42.2792969,52.9384766 Z">
 						</path>
 					</svg>
+				</button>
+				<button class="fun-nav__menu-btn" data-nav='modal'>
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
 				</button>
 			</div>
 			<nav class="fun-nav__modal">
@@ -65,10 +70,6 @@ class GlobalHeader extends HTMLElement {
 						<span class="group">
 							<span class="fun-nav__link--title">${obj.linkName}</span>
 							<span class="fun-nav__link--description">${obj.desc}</span>
-							<span class="fun-nav__link--published"> 
-								<strong class="fun-nav__link--key">Published:</strong> 
-								${obj.month}-${obj.year}
-							</span>
 						</span>
 					</a>
 				</li>
@@ -79,6 +80,8 @@ class GlobalHeader extends HTMLElement {
 
 		this.main = document.querySelector("main");
 		this.funNavBtn = this.shadowRoot.querySelector(".fun-nav__btn");
+		this.funNavMenuBtn =
+			this.shadowRoot.querySelector(".fun-nav__menu-btn");
 		this.funNavModal = this.shadowRoot.querySelector(".fun-nav__modal");
 		this.funNavModalScreen = this.shadowRoot.querySelector(
 			".fun-nav__modal--screen"
@@ -94,6 +97,7 @@ class GlobalHeader extends HTMLElement {
 	showNavModal() {
 		this.main.classList.toggle("fun-blur");
 		this.funNavBtn.classList.toggle("active");
+		this.funNavMenuBtn.classList.toggle("active");
 		this.funNavModal.classList.toggle("active");
 		this.funNavModalScreen.classList.toggle("active");
 		// console.log(this.toggleModal);
@@ -101,3 +105,14 @@ class GlobalHeader extends HTMLElement {
 }
 
 window.customElements.define("fun-nav", GlobalHeader);
+
+/*
+<span class="fun-nav__link--published">
+	<strong class="fun-nav__link--key">
+		Published:
+	</strong>
+	${obj.month}-${obj.year}
+</span>
+*/
+
+// 	@import "./global/components/GlobalHeader.css";

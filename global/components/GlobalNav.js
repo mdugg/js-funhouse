@@ -1,12 +1,12 @@
 const globalNav = [
-	{
-		linkName: "SPA Router",
-		linkURL: "/js-funhouse/projects/spa-router/index.html",
-		desc: "Vanilla JS single page application router",
-		month: "12",
-		year: "2022",
-		tags: ["SPA"],
-	},
+	// {
+	// 	linkName: "SPA Router",
+	// 	linkURL: "/js-funhouse/projects/spa-router/index.html",
+	// 	desc: "Vanilla JS single page application router",
+	// 	month: "12",
+	// 	year: "2022",
+	// 	tags: ["SPA"],
+	// },
 	{
 		linkName: "Basic Counter using Lit Framework for Web Components",
 		linkURL: "/js-funhouse/projects/lit-basic-counter/index.html",

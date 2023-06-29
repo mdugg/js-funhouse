@@ -1,10 +1,10 @@
 :root {
-  --md-brand-primary: #B5F100;
-  --md-brand-secondary: #38b9ad;
+  --fun-green-200: #B5F100;
+  --fun-teal-400: #38b9ad;
 }
 
 html {
-  font-family: 'Poppins', 'Helvetica-Neue', 'Helvetica', 'Open Sans', sans-serif;
+  font-family: "Poppins", "Helvetica-Neue", "Helvetica", "Open Sans", sans-serif;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -25,34 +25,29 @@ img {
   display: block;
 }
 
+:root {
+  --fun-green-200: #B5F100;
+  --fun-teal-400: #38b9ad;
+  --fun-navy-900: #232534;
+}
+
 .fun__grid {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  -ms-grid-rows: [topbar] 6rem [content];
-      grid-template-rows: [topbar] 6rem [content];
+  grid-template-columns: 1fr;
+  grid-template-rows: [topbar] 6rem [content];
   padding: 0;
   margin: 0;
 }
 
 .fun__home {
-  -ms-grid-rows: [topbar] 6rem [content] calc(100vh - 6rem);
-      grid-template-rows: [topbar] 6rem [content] calc(100vh - 6rem);
+  grid-template-rows: [topbar] 6rem [content] calc(100vh - 6rem);
 }
-
 .fun__home .fun__content {
-  background-color: #38b9ad;
+  background-color: var(--fun-teal-400);
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .fun__illustration {
@@ -60,7 +55,7 @@ img {
 }
 
 .fun__svg--large, .fun__svg--small {
-  fill: #B5F100;
+  fill: var(--fun-green-200);
   height: 100%;
 }
 
@@ -69,31 +64,30 @@ img {
 }
 
 .fun-blur {
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
+  filter: blur(10px);
 }
 
 .fun__code-block {
-  background-color: #232534;
+  background-color: var(--fun-navy-900);
 }
 
 @media screen and (max-width: 960px) {
   .fun__grid {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 }
-
 @media screen and (max-width: 720px) {
   .fun__grid {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
+
   .fun__svg--large, .fun__svg--small {
     display: none;
   }
+
   .fun__svg--small {
     display: block;
   }
 }
+
 /*# sourceMappingURL=global.css.map */

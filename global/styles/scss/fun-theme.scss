@@ -1,7 +1,12 @@
-$md-green: #B5F100;
-$illus-back: #38b9ad;
-$code-back: #232534;
 
+// Tokens
+:root {
+    --fun-green-200: #B5F100;
+    --fun-teal-400: #38b9ad;
+    --fun-navy-900: #232534;
+}
+
+// core template
 .fun__grid {
     display:grid;
     grid-template-columns:1fr;
@@ -9,11 +14,13 @@ $code-back: #232534;
     padding:0;
     margin:0;
 }
+
+// home landing
 .fun__home {
     grid-template-rows: [topbar] 6rem [content] calc(100vh - 6rem);
 
     .fun__content {
-        background-color: $illus-back;
+        background-color: var(--fun-teal-400);
         overflow: hidden;
         display: flex;
         justify-content: center;
@@ -24,7 +31,7 @@ $code-back: #232534;
     height: 100%;
 }
 .fun__svg--large {
-    fill: $md-green;
+    fill: var(--fun-green-200);
     height: 100%;
 }
 .fun__svg--small {
@@ -36,7 +43,7 @@ $code-back: #232534;
     filter: blur(10px);
 }
 .fun__code-block {
-    background-color: $code-back;
+    background-color: var(--fun-navy-900);
 }
 
 @media screen and (max-width: 960px){
